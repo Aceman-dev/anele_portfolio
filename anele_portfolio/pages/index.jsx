@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, useMotionValue, useAnimationFrame } from "framer-motion";
 
 const USERNAME = "AneleNqabeni220403635";
 
@@ -10,7 +10,7 @@ const SKILLS = [
   { name: "SQL", level: 82 },
   { name: "React / React Native", level: 80 },
   { name: "C# / .NET 9 / PostgreSQL", level: 78 },
-  { name: "Java / Spring Boot", level: 70 },
+  { name: "Java / Spring Boot", level: 74 },
   { name: "Python", level: 65 },
 ];
 
@@ -174,16 +174,86 @@ function Typewriter({ lines, speed = 38 }) {
 
 // ── Ticker ─────────────────────────────────────────────────────────────────
 function Ticker() {
-  const repeated = [...TICKER_TAGS, ...TICKER_TAGS, ...TICKER_TAGS];
+  
+  const repeated = [...TICKER_TAGS, ...TICKER_TAGS, ...TICKER_TAGS, ...TICKER_TAGS];
+
+  const x = useMotionValue(0);
+
+  
+  const isDragging = useRef(false);
+
+  const stripRef = useRef(null);
+  const singleWidth = useRef(0);
+
+  useEffect(() => {
+    
+    if (stripRef.current) {
+      singleWidth.current = stripRef.current.scrollWidth / 4;
+    }
+  }, []);
+
+  const SPEED = 1.1;
+  useAnimationFrame(() => {
+    if (isDragging.current) return;
+    if (singleWidth.current === 0) return;
+
+    let next = x.get() - SPEED;
+    if (Math.abs(next) >= singleWidth.current) {
+      next = 0;
+    }
+    x.set(next);
+  });
+
   return (
-    <div style={{ overflow: "hidden", borderTop: "1px solid rgba(34,211,238,0.12)", borderBottom: "1px solid rgba(34,211,238,0.12)", padding: "12px 0", background: "#071229" }}>
+    <div
+      style={{
+        overflow: "hidden",
+        borderTop: "1px solid rgba(34,211,238,0.12)",
+        borderBottom: "1px solid rgba(34,211,238,0.12)",
+        padding: "12px 0",
+        background: "#071229",
+        cursor: "grab",
+        userSelect: "none",
+      }}
+    >
       <motion.div
-        style={{ display: "flex", gap: "0", whiteSpace: "nowrap" }}
-        animate={{ x: ["0%", "-33.33%"] }}
-        transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+        ref={stripRef}
+        style={{
+          display: "flex",
+          gap: "0",
+          whiteSpace: "nowrap",
+          x,
+        }}
+        drag="x"
+        dragConstraints={{ left: -99999, right: 99999 }}
+        dragElastic={0}
+        dragMomentum={false}
+        onDragStart={() => { isDragging.current = true; }}
+        onDragEnd={() => {
+          isDragging.current = false;
+          
+          if (singleWidth.current > 0) {
+            const w = singleWidth.current;
+            let normalised = ((x.get() % w) - w) % -w;
+            
+            if (normalised > 0) normalised -= w;
+            x.set(normalised);
+          }
+        }}
+        whileDrag={{ cursor: "grabbing" }}
       >
         {repeated.map((tag, i) => (
-          <span key={i} style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "0.25em", color: "#dbe4ff", textTransform: "uppercase", padding: "0 24px" }}>
+          <span
+            key={i}
+            style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: "9px",
+              letterSpacing: "0.25em",
+              color: "#dbe4ff",
+              textTransform: "uppercase",
+              padding: "0 24px",
+            }}
+          >
             {tag} <span style={{ color: "#7dd3fc", margin: "0 8px" }}>◆</span>
           </span>
         ))}
@@ -697,7 +767,7 @@ export default function Home() {
                     whiteSpace: "nowrap",
                   }}>
                     <span style={{ color: "#ffffff" }}>FULL STACK </span>
-                    <span style={{ color: "#38bdf8"  }}>SOFTWARE ENGINEER</span>
+                    <span style={{ color: "#38bdf8" }}>SOFTWARE ENGINEER</span>
                   </span>
                 </div>
               </div>
