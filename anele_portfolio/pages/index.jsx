@@ -52,7 +52,7 @@ const PROJECTS = [
   {
     name: "Officeplace",
     index: "04",
-    tech: ["React", "Node.js", "MySQL", "Firebase"],
+    tech: ["React", "Node.js", "MySQL", "Firebase", "GitLab"],
     period: "Jul 2024 – Jul 2025",
     badge: "PRODUCTION",
     desc: "Office space management platform at Plum Systems. Contributed to data migration, backend integration, and ongoing live production support.",
@@ -73,7 +73,7 @@ const TIMELINE = [
     period: "Jan 2026 – Present",
     role: "Full Stack Developer",
     org: "Metrolink",
-    location: "Cape Town · Startup · Early Development",
+    location: "Cape Town · Startup · Continuous Development",
     type: "work",
     desc: "Actively contributing to the Metrolink startup. Building and optimising backend APIs using C# .NET 9 on Railway, while integrating with a React Native (Expo) mobile frontend.",
   },
@@ -176,23 +176,18 @@ function Typewriter({ lines, speed = 38 }) {
 function Ticker() {
   
   const repeated = [...TICKER_TAGS, ...TICKER_TAGS, ...TICKER_TAGS, ...TICKER_TAGS];
-
   const x = useMotionValue(0);
-
-  
   const isDragging = useRef(false);
-
   const stripRef = useRef(null);
   const singleWidth = useRef(0);
 
   useEffect(() => {
-    
     if (stripRef.current) {
       singleWidth.current = stripRef.current.scrollWidth / 4;
     }
   }, []);
 
-  const SPEED = 1.1;
+  const SPEED = 1.1; 
   useAnimationFrame(() => {
     if (isDragging.current) return;
     if (singleWidth.current === 0) return;
@@ -389,6 +384,12 @@ function Nav() {
       borderBottom: scrolled ? "1px solid rgba(34,211,238,0.18)" : "1px solid transparent",
       backdropFilter: scrolled ? "blur(18px)" : "none",
     }}>
+      {/* Persistent thin accent line always visible at very bottom of nav */}
+      <div style={{
+        position: "absolute", bottom: 0, left: 0, right: 0, height: "1px",
+        background: "linear-gradient(90deg, transparent, rgba(34,211,238,0.35) 20%, rgba(34,211,238,0.35) 80%, transparent)",
+        pointerEvents: "none",
+      }} />
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", height: "64px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "18px", letterSpacing: "0.25em", color: "#22d3ee" }}>
           AN<span style={{ color: "#ffffff", opacity: 0.35 }}>.</span><span style={{
@@ -403,20 +404,59 @@ function Nav() {
         <div className="nav-links" style={{ display: "flex", gap: "32px" }}>
           {links.map((l) => (
             <button key={l} onClick={() => scroll(l)}
-              style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "0.25em", textTransform: "uppercase", color: "#9acafc", background: "none", border: "none", cursor: "pointer", transition: "color 0.15s" }}
-              onMouseEnter={(e) => e.currentTarget.style.color = "#ffffff"}
-              onMouseLeave={(e) => e.currentTarget.style.color = "#9acafc"}
-            >{l}</button>
+              style={{
+                fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "0.25em",
+                textTransform: "uppercase", color: "#9acafc", background: "none", border: "none",
+                cursor: "pointer", transition: "color 0.2s", position: "relative", padding: "4px 0",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#22d3ee";
+                const line = e.currentTarget.querySelector(".nav-underline");
+                if (line) line.style.width = "100%";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#9acafc";
+                const line = e.currentTarget.querySelector(".nav-underline");
+                if (line) line.style.width = "0%";
+              }}
+            >
+              ./{l}
+              <span className="nav-underline" style={{
+                position: "absolute", bottom: "-2px", left: 0,
+                width: "0%", height: "1px",
+                background: "#22d3ee",
+                transition: "width 0.2s ease",
+                display: "block",
+              }} />
+            </button>
           ))}
         </div>
-        <a href="/Anele-Nqabeni-Resume.pdf.pdf" download style={{
-          fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase",
-          padding: "8px 16px", border: "1px solid rgba(34,211,238,0.4)", color: "#22d3ee",
-          textDecoration: "none", transition: "all 0.2s",
-        }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = "#22d3ee"; e.currentTarget.style.color = "#020617"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#22d3ee"; }}
-        >CV ↓</a>
+        <a
+          href="/Anele-Nqabeni-Resume.pdf.pdf"
+          download
+          style={{
+            fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "0.2em",
+            textTransform: "uppercase", padding: "8px 16px",
+            border: "1px solid rgba(34,211,238,0.4)", color: "#22d3ee",
+            textDecoration: "none", transition: "background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s",
+            display: "inline-flex", alignItems: "center", gap: "6px",
+            boxShadow: "0 0 0 0 rgba(34,211,238,0)",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#22d3ee";
+            e.currentTarget.style.color = "#020617";
+            e.currentTarget.style.borderColor = "#22d3ee";
+            e.currentTarget.style.boxShadow = "0 0 16px rgba(34,211,238,0.3)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.color = "#22d3ee";
+            e.currentTarget.style.borderColor = "rgba(34,211,238,0.4)";
+            e.currentTarget.style.boxShadow = "0 0 0 0 rgba(34,211,238,0)";
+          }}
+        >
+          <span style={{ fontSize: "11px" }}>↓</span> cv.pdf
+        </a>
       </div>
     </nav>
   );
@@ -466,7 +506,7 @@ export default function Home() {
     "whoami",
     "Anele Nqabeni — Junior Software Developer Intern @ iKhono Africa",
     "ls ~/stack",
-    "PHP  MySQL  React HTML CSS  JavaScript  REST APIs ",
+    "PHP  MySQL  Xneelo  KonsoleH  HTML CSS  JavaScript  REST APIs ",
     "cat status.txt",
     "Building real product apps for real businesses ✓",
     "git log --oneline -1",
@@ -476,9 +516,9 @@ export default function Home() {
   return (
     <div style={{ background: "#040b1c", color: "#e5e5e5", minHeight: "100vh" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600&family=DM+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'DM Sans', sans-serif; background: #040b1c; color: #e5e5e5; }
+        body { font-family: 'Syne', sans-serif; background: #040b1c; color: #e5e5e5; }
         html { scroll-behavior: smooth; }
         ::selection { background: #22d3ee; color: #000; }
         @keyframes blink {
@@ -512,9 +552,25 @@ export default function Home() {
           color: #fff;
         }
         .glow-text {
-          text-shadow: 0 0 18px rgba(56,189,248,0.22), 0 0 54px rgba(59,130,246,0.24);
+          text-shadow: 0 0 18px rgba(52,211,153,0.25), 0 0 54px rgba(16,185,129,0.2);
         }
         .text-sky-400 { color: #38bdf8; }
+        .text-emerald { color: #34d399; }
+
+        /* ── Hero grid watermark ── */
+        .hero-grid::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 1;
+          background-image:
+            linear-gradient(rgba(52,211,153,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(52,211,153,0.04) 1px, transparent 1px);
+          background-size: 48px 48px;
+          mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent 80%);
+          -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent 80%);
+        }
 
         /* ── Desktop: side-by-side grid ── */
         .hero-mobile-grid {
@@ -655,7 +711,7 @@ export default function Home() {
       <Nav />
 
       {/* ── HERO ── */}
-      <section className="hero-grid" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "80px 0", position: "relative", overflow: "hidden", borderBottom: "1px solid rgba(34,211,238,0.12)" }}>
+      <section className="hero-grid" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "80px 0 48px", position: "relative", overflow: "hidden", borderBottom: "1px solid rgba(34,211,238,0.12)" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", width: "100%", position: "relative", zIndex: 2 }}>
 
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.1 }}
@@ -669,7 +725,7 @@ export default function Home() {
                 <div style={{ flex: 1, marginBottom: "0", margin: "0", padding: "0" }}>
                   <h1 className="hero-heading glow-text" style={{ paddingBottom: "0", margin: "0", paddingTop: "0" }}>
                     <span style={{
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: "'Syne', sans-serif",
                       fontSize: "18px",
                       fontWeight: 300,
                       color: "#ffffff",
@@ -720,7 +776,7 @@ export default function Home() {
                 <div className="desktop-heading" style={{ margin: "0", padding: "0" }}>
                   <h1 className="hero-heading glow-text" style={{ margin: "0", padding: "0" }}>
                     <span style={{
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: "'Syne', sans-serif",
                       fontSize: "clamp(18px, 2.5vw, 26px)",
                       fontWeight: 300,
                       color: "#ffffff",
@@ -740,7 +796,7 @@ export default function Home() {
               {/* ── Role line — sits directly below heading on both mobile & desktop ── */}
               <div className="mobile-role">
                 <span style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Syne', sans-serif",
                   fontSize: "clamp(18px, 2.5vw, 26px)",
                   fontWeight: 300,
                   color: "#ffffff",
@@ -750,7 +806,7 @@ export default function Home() {
                 </span>
                 <div>
                   <span style={{
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "'Syne', sans-serif",
                     fontSize: "clamp(13px, 2vw, 20px)",
                     fontWeight: 300,
                     color: "#ffffff",
@@ -767,7 +823,7 @@ export default function Home() {
                     whiteSpace: "nowrap",
                   }}>
                     <span style={{ color: "#ffffff" }}>FULL STACK </span>
-                    <span style={{ color: "#38bdf8" }}>SOFTWARE ENGINEER</span>
+                    <span style={{ color: "#38bdf8"  }}>SOFTWARE ENGINEER</span>
                   </span>
                 </div>
               </div>
@@ -802,14 +858,72 @@ export default function Home() {
               </div>
 
               <div className="cta-buttons" style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "32px" }}>
-                <button onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-                  style={{ padding: "13px 28px", background: "#7dd3fc", color: "#020617", fontSize: "10px", fontFamily: "'DM Mono', monospace", letterSpacing: "0.18em", textTransform: "uppercase", border: "none", cursor: "pointer", fontWeight: 500 }}>
-                  View Work
-                </button>
-                <a href="/Anele-Nqabeni-Resume.pdf.pdf" download
-                  style={{ padding: "13px 28px", background: "transparent", color: "#9ecbff", fontSize: "10px", fontFamily: "'DM Mono', monospace", letterSpacing: "0.18em", textTransform: "uppercase", border: "1px solid rgba(125,211,252,0.3)", cursor: "pointer", textDecoration: "none", display: "inline-block" }}>
-                  Download CV
-                </a>
+                <motion.button
+                  onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  style={{
+                    padding: "13px 28px",
+                    background: "#22d3ee",
+                    color: "#020617",
+                    fontSize: "10px",
+                    fontFamily: "'DM Mono', monospace",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    border: "1px solid #22d3ee",
+                    cursor: "pointer",
+                    fontWeight: 600,
+                    transition: "background 0.2s, color 0.2s, box-shadow 0.2s",
+                    boxShadow: "0 0 0 0 rgba(34,211,238,0)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.color = "#22d3ee";
+                    e.currentTarget.style.boxShadow = "0 0 18px rgba(34,211,238,0.25)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#22d3ee";
+                    e.currentTarget.style.color = "#020617";
+                    e.currentTarget.style.boxShadow = "0 0 0 0 rgba(34,211,238,0)";
+                  }}
+                >
+                  ./view work
+                </motion.button>
+                <motion.a
+                  href="/Anele-Nqabeni-Resume.pdf.pdf"
+                  download
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  style={{
+                    padding: "13px 28px",
+                    background: "transparent",
+                    color: "#22d3ee",
+                    fontSize: "10px",
+                    fontFamily: "'DM Mono', monospace",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    border: "1px solid rgba(34,211,238,0.4)",
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    transition: "background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s",
+                    boxShadow: "0 0 0 0 rgba(34,211,238,0)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "rgba(34,211,238,0.08)";
+                    e.currentTarget.style.borderColor = "#22d3ee";
+                    e.currentTarget.style.boxShadow = "0 0 18px rgba(34,211,238,0.18)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.borderColor = "rgba(34,211,238,0.4)";
+                    e.currentTarget.style.boxShadow = "0 0 0 0 rgba(34,211,238,0)";
+                  }}
+                >
+                  <span style={{ fontSize: "12px", lineHeight: 1 }}>↓</span> download cv
+                </motion.a>
               </div>
 
               <div className="stats-row" style={{ display: "flex", gap: "36px", flexWrap: "wrap" }}>
@@ -868,7 +982,7 @@ export default function Home() {
       <Ticker />
 
       {/* ── ABOUT ── */}
-      <section id="about" style={{ maxWidth: "1280px", margin: "0 auto", padding: "100px 24px" }}>
+      <section id="about" style={{ maxWidth: "1280px", margin: "0 auto", padding: "56px 24px 100px" }}>
         <div style={{ marginBottom: "48px" }}>
           <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", color: "#22d3ee", letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "4px" }}>
             ~/portfolio <span style={{ color: "#4a6080" }}>on</span> <span style={{ color: "#a78bfa" }}>main</span>
