@@ -52,7 +52,7 @@ const PROJECTS = [
   {
     name: "Officeplace",
     index: "04",
-    tech: ["React", "Node.js", "MySQL", "Firebase", "GitLab"],
+    tech: ["React", "Node.js", "MySQL", "GitLab"],
     period: "Jul 2024 – Jul 2025",
     badge: "PRODUCTION",
     desc: "Office space management platform at Plum Systems. Contributed to data migration, backend integration, and ongoing live production support.",
@@ -63,17 +63,17 @@ const PROJECTS = [
 const TIMELINE = [
   {
     period: "Jan 2026 – Present",
-    role: "Software Developer Intern (Full Stack)",
+    role: "Junior Developer Intern (Full Stack)",
     org: "iKhono Africa",
     location: "Durban, South Africa · Remote",
     type: "work",
-    desc: "Part of the full stack development team building iKhono Africa, a platform formalising South Africa's minor building works and artisan services sector. Building client dashboards, booking systems, and backend integrations.",
+    desc: "Employed by Zaio Institute of Technology as a Junior Developer Intern, deployed full stack solutions for the iKhono Africa startup. Building client and professional(s) dashboards, booking systems, and backend integrations for a platform formalising South Africa's artisan services sector.",
   },
   {
     period: "Jan 2026 – Present",
     role: "Full Stack Developer",
     org: "Metrolink",
-    location: "Cape Town · Startup · Continuous Development",
+    location: "Cape Town · Startup · Remote · Continuous Development",
     type: "work",
     desc: "Actively contributing to the Metrolink startup. Building and optimising backend APIs using C# .NET 9 on Railway, while integrating with a React Native (Expo) mobile frontend.",
   },
@@ -174,7 +174,6 @@ function Typewriter({ lines, speed = 38 }) {
 
 // ── Ticker ─────────────────────────────────────────────────────────────────
 function Ticker() {
-  
   const repeated = [...TICKER_TAGS, ...TICKER_TAGS, ...TICKER_TAGS, ...TICKER_TAGS];
   const x = useMotionValue(0);
   const isDragging = useRef(false);
@@ -187,7 +186,7 @@ function Ticker() {
     }
   }, []);
 
-  const SPEED = 1.1; 
+  const SPEED = 1.1;
   useAnimationFrame(() => {
     if (isDragging.current) return;
     if (singleWidth.current === 0) return;
@@ -226,11 +225,9 @@ function Ticker() {
         onDragStart={() => { isDragging.current = true; }}
         onDragEnd={() => {
           isDragging.current = false;
-          
           if (singleWidth.current > 0) {
             const w = singleWidth.current;
             let normalised = ((x.get() % w) - w) % -w;
-            
             if (normalised > 0) normalised -= w;
             x.set(normalised);
           }
@@ -504,9 +501,9 @@ export default function Home() {
 
   const terminalLines = [
     "whoami",
-    "Anele Nqabeni — Junior Software Developer Intern @ iKhono Africa",
+    "Anele Nqabeni — Junior Developer Intern @ Zaio · iKhono Africa Startup",
     "ls ~/stack",
-    "PHP  MySQL  Xneelo  KonsoleH  HTML CSS  JavaScript  REST APIs ",
+    "PHP  MySQL  Xneelo  KonsoleH HTML CSS  JavaScript  REST APIs ",
     "cat status.txt",
     "Building real product apps for real businesses ✓",
     "git log --oneline -1",
@@ -828,21 +825,31 @@ export default function Home() {
                 </div>
               </div>
 
+              {/* Separator — sits between role line and description */}
+              <div style={{
+                width: "48px",
+                height: "1px",
+                background: "linear-gradient(90deg, #22d3ee, rgba(34,211,238,0.2))",
+                margin: "20px 0",
+              }} />
+
               {/* Description */}
-              <p style={{
-                maxWidth: "540px",
-                color: "#8aa0d2",
-                fontSize: "clamp(13px, 1.5vw, 14px)",
-                lineHeight: 1.75,
-                fontWeight: 300,
-                marginBottom: "32px",
-              }}>
-                Building the platform that formalises South Africa's artisan economy as a{" "}
-                <span style={{ color: "#cdd7ff", fontWeight: 500 }}>
-                  Software Developer Intern at iKhono Africa
-                </span>
-                . Actively contributing full stack solutions while working remotely from Cape Town.
-              </p>
+              <div style={{ maxWidth: "540px", marginBottom: "32px" }}>
+                <p style={{
+                  color: "#8aa0d2",
+                  fontSize: "clamp(13px, 1.5vw, 14px)",
+                  lineHeight: 1.75,
+                  fontWeight: 300,
+                }}>
+                  South Africa has millions of skilled artisans with no digital presence.{" "}
+                  <span style={{ color: "#cdd7ff", fontWeight: 500 }}>I'm helping fix that</span>{" "}
+                  as a Junior Developer Intern at{" "}
+                  <span style={{ color: "#cdd7ff", fontWeight: 500 }}>Zaio Institute of Technology</span>,
+                  {" "}building full stack solutions daily for the{" "}
+                  <span style={{ color: "#22d3ee", fontWeight: 500 }}>iKhono Africa</span>
+                  {" "}startup web application based in Durban and contributing to a platform that mitigates real world impact.
+                </p>
+              </div>
 
               {/* ── MOBILE ONLY: terminal card fills the block ── */}
               <div className="mobile-terminal-full">
@@ -997,10 +1004,10 @@ export default function Home() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "64px", alignItems: "start" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             <p style={{ color: "#8aa0d2", fontSize: "14px", lineHeight: 1.85, fontWeight: 300 }}>
-              I'm <span style={{ color: "#22d3ee", fontWeight: 600 }}>Anele Nqabeni</span>, a Junior Software Developer Intern at <span style={{ color: "#e5e5e5", fontWeight: 600 }}>iKhono Africa</span> in Durban, South Africa, building the platform that formalises South Africa's artisan economy, working remotely from Cape Town.
+              I'm <span style={{ color: "#22d3ee", fontWeight: 600 }}>Anele Nqabeni</span>, a Junior Developer Intern at <span style={{ color: "#e5e5e5", fontWeight: 600 }}>Zaio Institute of Technology</span>, where I have deployed full stack solutions for <span style={{ color: "#e5e5e5", fontWeight: 600 }}>iKhono Africa</span> a startup based in Durban which helps digitise South Africa's artisan economy, working remotely from Cape Town.
             </p>
             <p style={{ color: "#8aa0d2", fontSize: "14px", lineHeight: 1.85, fontWeight: 300 }}>
-              Day to day I work across the full stack at iKhono Africa: building PHP/MySQL backends, shipping features that real clients depend on, and crafting React frontends at Metrolink. Previously interned at <span style={{ color: "#e5e5e5", fontWeight: 600 }}>Plum Systems</span> on two live commercial property platforms.
+              I'm still early in my career, but I have made every opportunity count. Day to day I work across the full stack at iKhono Africa: building PHP/MySQL backend integrations together with JavaScript for the frontend, shipping features that real clients and artsans depend on. I am also crafting full stack solutions at Metrolink as a personal startup project. I previously interned at <span style={{ color: "#e5e5e5", fontWeight: 600 }}>Plum Systems</span> on two live commercial property platforms.
             </p>
             <p style={{ color: "#8aa0d2", fontSize: "14px", lineHeight: 1.85, fontWeight: 300 }}>
               I hold an Advanced Diploma in ICT in Applications Development from CPUT. My drive is simple: write clean code, collaborate well, and keep improving.
@@ -1011,12 +1018,12 @@ export default function Home() {
             <p style={{ color: "#4a6080", marginBottom: "16px" }}>{"// anele.config.json"}</p>
             {[
               ["name", '"Anele Nqabeni"', "#c084fc"],
-              ["role", '"Software Developer Intern"', "#fbbf24"],
-              ["company", '"iKhono Africa"', "#fbbf24"],
+              ["role", '"Junior Developer Intern"', "#fbbf24"],
+              ["company", '"Zaio Institute of Technology · iKhono Africa"', "#fbbf24"],
               ["location", '"Cape Town, ZA"', "#fbbf24"],
               ["email", '"anele.nqabeni01@gmail.com"', "#fbbf24"],
               ["phone", '"+27 67 876 2327"', "#fbbf24"],
-              ["status", '"open to entry level opportunities"', "#fbbf24"],
+              ["status", '"open to entry level or junior role opportunities"', "#fbbf24"],
               ["education", '"Advanced Dip. ICT — CPUT"', "#fbbf24"],
             ].map(([k, v, color]) => (
               <div key={k} style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "6px" }}>
