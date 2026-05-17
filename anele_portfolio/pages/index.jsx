@@ -452,7 +452,7 @@ function Nav() {
             e.currentTarget.style.boxShadow = "0 0 0 0 rgba(34,211,238,0)";
           }}
         >
-          <span style={{ fontSize: "11px" }}>↓</span> cv.pdf
+          <span style={{ fontSize: "11px" }}>↓</span> cv
         </a>
       </div>
     </nav>
