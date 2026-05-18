@@ -276,7 +276,7 @@ function RepoCard({ r }) {
         <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "12px", color: hovered ? "#22d3ee" : "#ccc", transition: "color 0.15s", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
           {r.name}
         </h3>
-        <span style={{ color: "#22d3ee", fontSize: "11px", opacity: hovered ? 1 : 0, transition: "opacity 0.15s", flexShrink: 0 }}>↗</span>
+        <span style={{ color: "#22d3ee", fontSize: "11px", opacity: hovered ? 1 : 0, transition: "opacity 0.15s", flexShrink: 0 }}>/&gt;</span>
       </div>
       <p style={{ fontSize: "11px", color: "#9db9da", lineHeight: 1.7, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", marginBottom: "16px" }}>
         {r.description || "No description."}
@@ -331,7 +331,7 @@ function ProjectCard({ project, index }) {
           style={{ alignSelf: "flex-start", padding: "8px 16px", border: "1px solid #22d3ee", color: "#22d3ee", fontSize: "8px", fontFamily: "'Syne', sans-serif", letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "all 0.15s" }}
           onMouseEnter={(e) => { e.currentTarget.style.background = "#22d3ee"; e.currentTarget.style.color = "#000"; }}
           onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#22d3ee"; }}>
-          Visit ↗
+          Visit /&gt;
         </a>
       )}
     </motion.div>
@@ -517,6 +517,9 @@ export default function Home() {
         .mobile-photo-row { display: none; align-items: flex-start; gap: 16px; margin-bottom: 0; }
         .mobile-terminal-full { display: none; width: 100%; background: #0d1117; border: 1px solid #1a2a4a; border-radius: 12px; margin-bottom: 28px; }
         .mobile-role { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+        @media (max-width: 768px) {
+          .cta-buttons button, .cta-buttons a { padding: 10px 18px !important; font-size: 9px !important; width: auto !important; flex: 0 1 auto !important; }
+        }
       `}</style>
 
       <Nav />
@@ -682,7 +685,7 @@ export default function Home() {
               I'm <span style={{ color: "#22d3ee", fontWeight: 600 }}>Anele Nqabeni</span>, a Junior Developer Intern at <span style={{ color: "#e5e5e5", fontWeight: 600 }}>Zaio Institute of Technology</span>, where I have deployed full stack solutions for <span style={{ color: "#e5e5e5", fontWeight: 600 }}>iKhono Africa</span> a Durban based startup which helps digitise South Africa's artisan economy, working remotely from Cape Town. I'm still early in my career, but I have made every opportunity count.
             </p>
             <p style={{ color: "#8aa0d2", fontSize: "14px", lineHeight: 1.85, fontWeight: 300 }}>
-              Day to day I work across the full stack at iKhono Africa: building PHP/MySQL backend integrations together with JavaScript for the frontend, shipping features that real clients and artisans depend on. I am also crafting full stack solutions at Metrolink as a personal startup project. I previously interned at <span style={{ color: "#e5e5e5", fontWeight: 600 }}>Plum Systems</span> on two live commercial property platforms.
+              Day to day I work across the full stack at iKhono Africa: building PHP/MySQL backend integrations together with JavaScript for the frontend, shipping features that real clients and professionals depend on. I am also crafting full stack solutions at Metrolink as a personal startup project. I previously interned at <span style={{ color: "#e5e5e5", fontWeight: 600 }}>Plum Systems</span> on two live commercial property platforms.
             </p>
             <p style={{ color: "#8aa0d2", fontSize: "14px", lineHeight: 1.85, fontWeight: 300 }}>
               I hold an Advanced Diploma in ICT in Applications Development from CPUT. My drive is simple: write clean code, collaborate well, and keep improving.
@@ -717,7 +720,7 @@ export default function Home() {
           <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "64px" }}>
             <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "9px", letterSpacing: "0.3em", color: "#22d3ee", textTransform: "uppercase", flexShrink: 0 }}>02 — Skills</span>
             <div style={{ flex: 1, height: "1px", background: "#12213a" }} />
-            <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "56px", color: "#7b94ce", lineHeight: 1, flexShrink: 0 }}>STACK</span>
+            <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "56px", color: "#7b94ce", lineHeight: 1, flexShrink: 0 }}>TECH STACK</span>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px 80px", marginBottom: "48px" }}>
             {SKILLS.map((s) => <SkillBar key={s.name} {...s} />)}
@@ -804,15 +807,15 @@ export default function Home() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
           {[
             { icon: "@", label: "Email", value: "anele.nqabeni01@gmail.com", href: "mailto:anele.nqabeni01@gmail.com" },
-            { icon: "⌥", label: "GitHub", value: "AneleNqabeni220403635", href: "https://github.com/AneleNqabeni220403635" },
+            { icon: "GH", label: "GitHub", value: "AneleNqabeni220403635", href: "https://github.com/AneleNqabeni220403635" },
             { icon: "in", label: "LinkedIn", value: "anele-nqabeni-b719691aa", href: "https://www.linkedin.com/in/anele-nqabeni-b719691aa" },
-            { icon: "☎", label: "Phone", value: "+27 67 876 2327", href: "tel:+27678762327" },
+            { icon: "TEL", label: "Phone", value: "+27 67 876 2327", href: "tel:+27678762327" },
           ].map(({ icon, label, value, href }) => (
             <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer"
               style={{ display: "flex", alignItems: "center", gap: "14px", padding: "20px", background: "#081327", border: "1px solid #0d1a36", textDecoration: "none", transition: "border-color 0.15s" }}
               onMouseEnter={(e) => e.currentTarget.style.borderColor = "#22d3ee55"}
               onMouseLeave={(e) => e.currentTarget.style.borderColor = "#0d1a36"}>
-              <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "13px", color: "#22d3ee", width: "20px", textAlign: "center", flexShrink: 0 }}>{icon}</span>
+              <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "8px", fontWeight: 700, letterSpacing: "0.08em", color: "#22d3ee", width: "28px", minWidth: "28px", textAlign: "center", flexShrink: 0 }}>{icon}</span>
               <div>
                 <p style={{ fontFamily: "'Syne', sans-serif", fontSize: "8px", color: "#4a6080", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "4px" }}>{label}</p>
                 <p style={{ fontSize: "12px", color: "#8aa0d2" }}>{value}</p>
