@@ -720,7 +720,7 @@ export default function Home() {
           <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "64px" }}>
             <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "9px", letterSpacing: "0.3em", color: "#22d3ee", textTransform: "uppercase", flexShrink: 0 }}>02 — Skills</span>
             <div style={{ flex: 1, height: "1px", background: "#12213a" }} />
-            <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(28px, 5vw, 56px)", fontWeight: 800, color: "#ffffff", lineHeight: 1, flexShrink: 0 }}>TECH STACK</span>
+            <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(20px, 3vw, 32px)", fontWeight: 800, color: "#ffffff", lineHeight: 1, flexShrink: 0 }}>TECH STACK</span>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px 80px", marginBottom: "48px" }}>
             {SKILLS.map((s) => <SkillBar key={s.name} {...s} />)}
