@@ -254,9 +254,11 @@ function SkillBar({ name, level }) {
 function EkasiCard() {
   const [hovered, setHovered] = useState(false);
   return (
-    <div
+    <motion.div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      whileHover={{ y: -6, boxShadow: "0 0 0 1px rgba(34,211,238,0.35), 0 12px 40px rgba(34,211,238,0.12)" }}
+      transition={{ type: "spring", stiffness: 320, damping: 24 }}
       style={{
         display: 'flex', flexDirection: 'column', padding: '32px',
         background: '#081327',
@@ -283,7 +285,7 @@ function EkasiCard() {
       </h3>
 
       {/* Description */}
-      <p style={{ fontSize: '16px', color: '#9db9da', lineHeight: 1.7, marginBottom: '16px', flex: 1, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+      <p style={{ fontSize: '14px', color: '#9db9da', lineHeight: 1.7, marginBottom: '16px', flex: 1, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
         Full stack community notice board for C-Section, Khayelitsha. Built with React & Supabase auth, real time data, file storage, and interactive maps. 🏘️
       </p>
 
@@ -320,7 +322,7 @@ function EkasiCard() {
           ↗ live
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -775,7 +777,7 @@ export default function Home() {
             <p style={{ fontFamily: "'Syne', sans-serif", fontSize: "11px", color: "#7b96c5" }}>fetching repos...</p>
           ) : (
             <motion.div
-              style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "1px", background: "#091a2c" }}
+              style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "16px" }}
               initial="hidden" whileInView="visible" viewport={{ once: true }}
               variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.04 } } }}
             >
