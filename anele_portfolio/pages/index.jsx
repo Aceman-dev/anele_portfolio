@@ -775,7 +775,7 @@ export default function Home() {
           <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "9px", letterSpacing: "0.3em", color: "#22d3ee", textTransform: "uppercase", flexShrink: 0 }}>03 — Projects</span>
           <div style={{ flex: 1, height: "1px", background: "#12213a" }} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1px", background: "#0d1a36" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
           {PROJECTS.map((p, i) => <ProjectCard key={p.name} project={p} index={i} />)}
         </div>
         <div style={{ marginTop: "72px" }}>
