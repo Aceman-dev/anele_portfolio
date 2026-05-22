@@ -379,6 +379,7 @@ function ProjectCard({ project, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.07 }}
+      whileHover={{ y: -8, boxShadow: "0 35px 90px rgba(34,211,238,0.16)" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -388,8 +389,7 @@ function ProjectCard({ project, index }) {
         display: "flex",
         flexDirection: "column",
         gap: "16px",
-        transition: "border-color 0.2s, transform 0.2s",
-        transform: hovered ? "translateY(-4px)" : "translateY(0)",
+        transition: "border-color 0.2s, transform 0.2s, box-shadow 0.2s",
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
