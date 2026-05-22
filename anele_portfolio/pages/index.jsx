@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform, useInView, useMotionValue, useAnimationFrame } from "framer-motion";
 
-const USERNAME = "AneleNqabeni220403635";
+const USERNAME = "Aceman-dev";
 
 const SKILLS = [
   { name: "HTML / CSS", level: 93 },
@@ -311,7 +311,7 @@ function EkasiCard() {
       {/* Buttons */}
       <div style={{ display: 'flex', gap: '8px' }}>
         <a
-          href="https://github.com/AneleNqabeni220403635/ekasiboard"
+          href="https://github.com/Aceman-dev/ekasiboard"
           target="_blank"
           rel="noreferrer"
           style={{ flex: 1, padding: '8px 12px', border: '1px solid #0d1a36', color: '#9db9da', fontSize: '9px', fontFamily: "'Syne', sans-serif", letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'none', textAlign: 'center', transition: 'border-color 0.15s, color 0.15s' }}
@@ -843,7 +843,7 @@ export default function Home() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
           {[
             { icon: "@", label: "Email", value: "anele.nqabeni01@gmail.com", href: "mailto:anele.nqabeni01@gmail.com" },
-            { icon: "GH", label: "GitHub", value: "AneleNqabeni220403635", href: "https://github.com/AneleNqabeni220403635" },
+            { icon: "GH", label: "GitHub", value: "Aceman-dev", href: "https://github.com/Aceman-dev  " },
             { icon: "in", label: "LinkedIn", value: "anele-nqabeni-b719691aa", href: "https://www.linkedin.com/in/anele-nqabeni-b719691aa" },
             { icon: "TEL", label: "Phone", value: "+27 67 876 2327", href: "tel:+27678762327" },
           ].map(({ icon, label, value, href }) => (

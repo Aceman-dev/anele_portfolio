@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
     try {
        const response = await fetch(
-      "https://api.github.com/users/AneleNqabeni220403635/repos?per_page=100&sort=updated",
+      "https://api.github.com/users/Aceman-dev/repos?per_page=100&sort=updated",
       {
         headers: {
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
