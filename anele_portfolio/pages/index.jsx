@@ -665,7 +665,7 @@ export default function Home() {
               </div>
 
               <div className="stats-row" style={{ display: "flex", gap: "36px", flexWrap: "wrap" }}>
-                {[["1+", "Years Exp."], ["4", "Projects"], ["8+", "Programming Languages"]].map(([val, label]) => (
+                {[["1+", "Years Exp."], ["5", "Projects"], ["8+", "Programming Languages"]].map(([val, label]) => (
                   <div key={label} style={{ textAlign: "center" }}>
                     <p style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "44px", lineHeight: 1, color: "#22d3ee" }}>{val}</p>
                     <p style={{ fontFamily: "'Syne', sans-serif", fontSize: "8px", letterSpacing: "0.22em", color: "#9ecbff", textTransform: "uppercase", marginTop: "4px" }}>{label}</p>
