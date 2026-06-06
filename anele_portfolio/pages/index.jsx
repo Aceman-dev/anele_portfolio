@@ -123,10 +123,10 @@ export default function Home() {
 
               <div className={styles.mobileTerminalFull}>
                 <div className={styles.terminalHeader}>
+                  <span className={styles.terminalTitle}>anele@ikhono.africa ~ zsh</span>
                   <span className={styles.terminalDot} style={{ background: "#ff5f57" }} />
                   <span className={styles.terminalDot} style={{ background: "#febc2e" }} />
                   <span className={styles.terminalDot} style={{ background: "#28c840" }} />
-                  <span className={styles.terminalTitle}>anele@ikhono.africa ~ zsh</span>
                 </div>
                 <div className={styles.terminalBody}>
                   <Typewriter lines={TERMINAL_LINES} speed={36} />
@@ -174,10 +174,10 @@ export default function Home() {
               </div>
               <div className={styles.terminalBlock}>
                 <div className={styles.terminalHeader}>
+                  <span className={styles.terminalTitle}>anele@ikhono.africa ~ zsh</span>
                   <span className={styles.terminalDot} style={{ background: "#ff5f57" }} />
                   <span className={styles.terminalDot} style={{ background: "#febc2e" }} />
                   <span className={styles.terminalDot} style={{ background: "#28c840" }} />
-                  <span className={styles.terminalTitle}>anele@ikhono.africa ~ zsh</span>
                 </div>
                 <div className={styles.terminalBody}>
                   <Typewriter lines={TERMINAL_LINES} speed={36} />
