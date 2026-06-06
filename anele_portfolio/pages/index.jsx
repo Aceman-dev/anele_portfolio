@@ -121,7 +121,6 @@ const TIMELINE = [
   },
 ];
 
-// ── Typewriter ─────────────────────────────────────────────────────────────
 function Typewriter({ lines, speed = 38 }) {
   const [displayed, setDisplayed] = useState([]);
   const [lineIdx, setLineIdx] = useState(0);
@@ -170,7 +169,6 @@ function Typewriter({ lines, speed = 38 }) {
   );
 }
 
-// ── Ticker ─────────────────────────────────────────────────────────────────
 function Ticker() {
   const repeated = [...TICKER_TAGS, ...TICKER_TAGS, ...TICKER_TAGS, ...TICKER_TAGS];
   const x = useMotionValue(0);
@@ -224,7 +222,6 @@ function Ticker() {
   );
 }
 
-// ── Skill bar ──────────────────────────────────────────────────────────────
 function SkillBar({ name, level }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
@@ -246,7 +243,6 @@ function SkillBar({ name, level }) {
   );
 }
 
-// ── eKasi Board pinned card ────────────────────────────────────────────────
 function EkasiCard() {
   return (
     <motion.div
@@ -291,7 +287,6 @@ function EkasiCard() {
   );
 }
 
-// ── Repo card ──────────────────────────────────────────────────────────────
 function RepoCard({ r }) {
   return (
     <a href={r.html_url} target="_blank" rel="noreferrer" className={styles.repoCard}>
@@ -314,7 +309,6 @@ function RepoCard({ r }) {
   );
 }
 
-// ── Project card ───────────────────────────────────────────────────────────
 function ProjectCard({ project, index }) {
   return (
     <motion.div
@@ -343,7 +337,6 @@ function ProjectCard({ project, index }) {
   );
 }
 
-// ── Nav ────────────────────────────────────────────────────────────────────
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -379,7 +372,6 @@ function Nav() {
   );
 }
 
-// ── App ────────────────────────────────────────────────────────────────────
 export default function Home() {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -430,7 +422,6 @@ export default function Home() {
     <div className={styles.wrapper}>
       <Nav />
 
-      {/* ── HERO ── */}
       <section className={styles.heroGrid}>
         <div className={styles.container}>
           <motion.div
@@ -440,7 +431,6 @@ export default function Home() {
             className={styles.heroMobileGrid}
           >
             <div>
-              {/* Mobile: photo + name side by side */}
               <div className={styles.mobilePhotoRow}>
                 <div style={{ flex: 1, margin: 0, padding: 0 }}>
                   <h1 className={`${styles.heroHeading} ${styles.glowText}`} style={{ margin: 0, padding: 0 }}>
@@ -460,7 +450,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Desktop heading */}
               {!isMobile && (
                 <div className={styles.desktopHeading} style={{ margin: 0, padding: 0 }}>
                   <h1 className={`${styles.heroHeading} ${styles.glowText}`} style={{ margin: 0, padding: 0 }}>
@@ -472,7 +461,6 @@ export default function Home() {
                 </div>
               )}
 
-              {/* Role */}
               <div className={styles.mobileRole}>
                 <span className={styles.roleAmpersand}>&amp;</span>
                 <div>
@@ -486,7 +474,6 @@ export default function Home() {
 
               <div className={styles.heroDivider} />
 
-              {/* Bio */}
               <div className={styles.heroBio}>
                 <p className={styles.heroBioText}>
                   South Africa has millions of skilled artisans with no digital presence.{" "}
@@ -499,7 +486,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Mobile terminal */}
               <div className={styles.mobileTerminalFull}>
                 <div className={styles.terminalHeader}>
                   <span className={styles.terminalDot} style={{ background: "#ff5f57" }} />
@@ -512,7 +498,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* CTA buttons */}
               <div className={styles.ctaButtons}>
                 <motion.button
                   className={styles.ctaPrimary}
@@ -533,7 +518,6 @@ export default function Home() {
                 </motion.a>
               </div>
 
-              {/* Stats */}
               <div className={styles.statsRow}>
                 {[["1+", "Years Exp."], ["5", "Projects"], ["8+", "Programming Languages"]].map(([val, label]) => (
                   <div key={label} style={{ textAlign: "center" }}>
@@ -544,7 +528,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Desktop: photo + terminal */}
             <motion.div
               className={styles.heroImageWrap}
               initial={{ opacity: 0, scale: 0.92 }}
@@ -572,7 +555,6 @@ export default function Home() {
 
       <Ticker />
 
-      {/* ── ABOUT ── */}
       <section id="about" className={styles.aboutSection}>
         <div style={{ marginBottom: "48px" }}>
           <p className={styles.sectionBreadcrumb}>
@@ -623,7 +605,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SKILLS ── */}
       <section id="skills" className={styles.skillsSection}>
         <div className={styles.skillsInner}>
           <div className={styles.sectionHeader}>
@@ -642,7 +623,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PROJECTS ── */}
       <section id="projects" className={styles.projectsSection}>
         <div className={styles.sectionHeader} style={{ marginBottom: "64px" }}>
           <span className={styles.sectionHeaderLabel}>03 — Projects</span>
@@ -676,7 +656,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TIMELINE ── */}
       <section id="timeline" className={styles.timelineSection}>
         <div className={styles.timelineInner}>
           <div style={{ marginBottom: "64px" }}>
@@ -705,7 +684,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CONTACT ── */}
       <section id="contact" className={styles.contactSection}>
         <div className={styles.sectionHeader} style={{ marginBottom: "48px" }}>
           <span className={styles.sectionHeaderLabel}>05 — Contact</span>
@@ -747,7 +725,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <span className={styles.footerText}>
@@ -759,7 +736,6 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* ── BACK TO TOP ── */}
       <button
         className={`${styles.backToTop} ${!showBackToTop ? styles.backToTopHidden : ""}`}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

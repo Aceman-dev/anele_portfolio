@@ -36,7 +36,6 @@ body::after {
   background-size: 180px 180px;
 }
 
-/* ── Keyframes ── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
