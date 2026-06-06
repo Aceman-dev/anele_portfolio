@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "../../styles/home.module.css";
 
 const NAV_LINKS = ["about", "skills", "projects", "timeline", "contact"];
@@ -6,25 +6,25 @@ const NAV_LINKS = ["about", "skills", "projects", "timeline", "contact"];
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
+  
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", fn);
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
+  if (menuOpen) {
+    document.body.classList.add("menu-open");
+  } else {
+    document.body.classList.remove("menu-open");
+  }
+  return () => {
+    document.body.classList.remove("menu-open");
+  };
+}, [menuOpen]);
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [menuOpen]);
-
-  const scroll = (id) => {
-    document.body.style.overflow = "";
-    setMenuOpen(false);
-    setTimeout(() => {
+const scroll = (id) => {
+  document.body.classList.remove("menu-open");
+  setMenuOpen(false);
+  setTimeout(() => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }, 350);
-  };
+};
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : styles.navTransparent}`}>
