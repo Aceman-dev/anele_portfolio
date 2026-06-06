@@ -19,8 +19,11 @@ export default function Nav() {
   }, [menuOpen]);
 
   const scroll = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    document.body.style.overflow = "";
     setMenuOpen(false);
+    setTimeout(() => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }, 350);
   };
 
   return (
