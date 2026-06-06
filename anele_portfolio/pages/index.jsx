@@ -1,376 +1,26 @@
-import { useEffect, useState, useRef } from "react";
-import { motion, useInView, useMotionValue, useAnimationFrame } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import styles from "../styles/home.module.css";
 
-const USERNAME = "Aceman-dev";
+import Nav from "../js/components/Nav";
+import Ticker from "../js/components/Ticker";
+import Typewriter from "../js/components/Typewriter";
+import SkillBar from "../js/components/SkillBar";
+import ProjectCard from "../js/components/ProjectCard";
+import RepoCard from "../js/components/RepoCard";
+import EkasiCard from "../js/components/EkasiCard";
 
-const SKILLS = [
-  { name: "HTML / CSS", level: 93 },
-  { name: "JavaScript", level: 88 },
-  { name: "PHP / REST APIs / MySQL", level: 85 },
-  { name: "SQL", level: 82 },
-  { name: "React / React Native", level: 80 },
-  { name: "C# / .NET 9 / PostgreSQL", level: 78 },
-  { name: "Java / Spring Boot / REST APIs", level: 80 },
-  { name: "Python", level: 70 },
-];
-
-const TICKER_TAGS = [
-  "React", "PHP", "PostgreSQL", "JavaScript", "C# .NET 9", "React Native",
-  "Expo", "Railway", "Zustand", "Axios", "SignalR", "REST APIs", "Git", "GitLab", "FileZilla",
-  "Bootstrap", "Joomla", "KonsoleH", "Apache", "MySQL", "Java", "Spring Boot", "Python",
-  "HTML5", "CSS3", "VS Code", "Tailwind", "Node.js",
-];
-
-const PROJECTS = [
-  {
-    name: "API Property",
-    index: "01",
-    tech: ["React", "Joomla", "JavaScript", "Bootstrap", "MySQL", "GitLab"],
-    period: "Jul 2024 – Jul 2025",
-    badge: "PRODUCTION",
-    desc: "Commercial and industrial property management platform at Plum Systems. Frontend features, UI consistency, responsive design, and GitLab based deployment pipeline.",
-    link: null,
-  },
-  {
-    name: "Officeplace",
-    index: "02",
-    tech: ["React", "Node.js", "MySQL", "GitLab"],
-    period: "Jul 2024 – Jul 2025",
-    badge: "PRODUCTION",
-    desc: "Office space management platform at Plum Systems. Contributed to data migration, backend integration, and ongoing live production support.",
-    link: null,
-  },
-  {
-    name: "iKhono Africa",
-    index: "03",
-    tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS", "REST APIs"],
-    period: "Jan 2026 – Present",
-    badge: "LIVE",
-    desc: "South African home services platform connecting artisans and clients, formalising the minor building works sector. Full platform: service discovery, booking flow, professional profiles, client and admin dashboards, and secure backend endpoints.",
-    link: "https://ikhono.africa",
-  },
-  {
-    name: "Metrolink",
-    index: "04",
-    tech: ["C# .NET 9", "PostgreSQL", "React Native", "Expo", "Railway", "Zustand", "Axios", "SignalR", "REST APIs"],
-    period: "Jan 2026 – Present",
-    badge: "STARTUP",
-    desc: "A Cape Town transit intelligence platform unifying MyCiTi, Metrorail, and Golden Arrow schedules with crowdsourced delay reporting - built on demo APIs as early development, with live agency integration on the roadmap.",
-    link: null,
-  },
-  {
-    name: "TESS7 LLC",
-    index: "05",
-    tech: ["React", "PHP", "MySQL", "JavaScript", "HTML", "CSS", "REST APIs"],
-    period: "May 2026 – Present",
-    badge: "CONTRIBUTION",
-    desc: "Recruiting and staffing agency website. Delivered dashboards for employers to advertise jobs, professionals to upload resumes, and subscribers to manage job loss packages. Also polished UI aesthetics and integrated database connections.",
-    link: "https://tess7llc.com",
-  },
-];
-
-const TIMELINE = [
-  {
-    period: "Jan 2026 – Present",
-    role: "Junior Developer Intern (Full Stack)",
-    org: "iKhono Africa",
-    location: "Durban, South Africa · Remote",
-    type: "work",
-    desc: "Employed by Zaio Institute of Technology as a Junior Developer Intern, deployed full stack solutions for the iKhono Africa startup. Building client and professional(s) dashboards, booking systems, and backend integrations for a platform formalising South Africa's artisan services sector.",
-  },
-  {
-    period: "Jan 2026 – Present",
-    role: "Full Stack Developer",
-    org: "Metrolink",
-    location: "Cape Town · Startup · Remote · Continuous Development",
-    type: "work",
-    desc: "Actively contributing to the Metrolink startup. Building and optimising backend APIs using C# .NET 9 on Railway, while integrating with a React Native (Expo) mobile frontend.",
-  },
-  {
-    period: "Jan 2025 – Dec 2025",
-    role: "Advanced Diploma — ICT in Applications Development",
-    org: "Cape Peninsula University of Technology",
-    location: "Cape Town",
-    type: "edu",
-    desc: "Advanced software engineering, systems design, and development practices. Completed.",
-  },
-  {
-    period: "Jul 2024 – Jul 2025",
-    role: "Web Developer Intern",
-    org: "Plum Systems",
-    location: "Bellville, Cape Town",
-    type: "work",
-    desc: "Contributed to two live production commercial property platforms: API Property and Officeplace. Built frontend features with JavaScript and React, customised components via Joomla CMS, applied Bootstrap for responsive design, and shipped code through GitLab CI pipelines.",
-  },
-  {
-    period: "Jan 2022 – Dec 2024",
-    role: "Diploma — ICT in Applications Development",
-    org: "Cape Peninsula University of Technology",
-    location: "Cape Town",
-    type: "edu",
-    desc: "Software development, databases, networking, and IT systems fundamentals. Completed.",
-  },
-  {
-    period: "Jan 2021 – Dec 2021",
-    role: "Higher Certificate — ICT",
-    org: "Cape Peninsula University of Technology",
-    location: "Cape Town",
-    type: "edu",
-    desc: "Foundational qualifications in ICT and information systems. Completed.",
-  },
-];
-
-function Typewriter({ lines, speed = 38 }) {
-  const [displayed, setDisplayed] = useState([]);
-  const [lineIdx, setLineIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    if (lineIdx >= lines.length) { setDone(true); return; }
-    if (charIdx <= lines[lineIdx].length) {
-      const t = setTimeout(() => {
-        setDisplayed((prev) => {
-          const next = [...prev];
-          next[lineIdx] = lines[lineIdx].slice(0, charIdx);
-          return next;
-        });
-        setCharIdx((c) => c + 1);
-      }, speed);
-      return () => clearTimeout(t);
-    } else {
-      const t = setTimeout(() => { setLineIdx((l) => l + 1); setCharIdx(0); }, 320);
-      return () => clearTimeout(t);
-    }
-  }, [lineIdx, charIdx, lines, speed]);
-
-  return (
-    <div className={styles.typewriterWrap}>
-      {lines.map((line, i) => (
-        <div key={i} className={styles.typewriterLine}>
-          {(i < lineIdx || (i === lineIdx && charIdx > 0)) && (
-            <>
-              {i % 2 === 0 ? (
-                <span className={styles.typewriterPrompt}>$</span>
-              ) : (
-                <span className={styles.typewriterSpacer} />
-              )}
-              <span className={i % 2 === 0 ? styles.typewriterTextCommand : styles.typewriterTextOutput}>
-                {displayed[i] ?? ""}
-              </span>
-              {i === lineIdx && !done && <span className={styles.cursor} />}
-            </>
-          )}
-        </div>
-      ))}
-      {done && <span className={styles.cursorDone} />}
-    </div>
-  );
-}
-
-function Ticker() {
-  const repeated = [...TICKER_TAGS, ...TICKER_TAGS, ...TICKER_TAGS, ...TICKER_TAGS];
-  const x = useMotionValue(0);
-  const isDragging = useRef(false);
-  const stripRef = useRef(null);
-  const singleWidth = useRef(0);
-
-  useEffect(() => {
-    if (stripRef.current) {
-      singleWidth.current = stripRef.current.scrollWidth / 4;
-    }
-  }, []);
-
-  const SPEED = 1.1;
-  useAnimationFrame(() => {
-    if (isDragging.current) return;
-    if (singleWidth.current === 0) return;
-    let next = x.get() - SPEED;
-    if (Math.abs(next) >= singleWidth.current) next = 0;
-    x.set(next);
-  });
-
-  return (
-    <div className={styles.ticker}>
-      <motion.div
-        ref={stripRef}
-        style={{ display: "flex", gap: "0", whiteSpace: "nowrap", x }}
-        drag="x"
-        dragConstraints={{ left: -99999, right: 99999 }}
-        dragElastic={0}
-        dragMomentum={false}
-        onDragStart={() => { isDragging.current = true; }}
-        onDragEnd={() => {
-          isDragging.current = false;
-          if (singleWidth.current > 0) {
-            const w = singleWidth.current;
-            let normalised = ((x.get() % w) - w) % -w;
-            if (normalised > 0) normalised -= w;
-            x.set(normalised);
-          }
-        }}
-        whileDrag={{ cursor: "grabbing" }}
-      >
-        {repeated.map((tag, i) => (
-          <span key={i} className={styles.tickerTag}>
-            {tag} <span className={styles.tickerDiamond}>◆</span>
-          </span>
-        ))}
-      </motion.div>
-    </div>
-  );
-}
-
-function SkillBar({ name, level }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-  return (
-    <div ref={ref} className={styles.skillBarWrap}>
-      <div className={styles.skillBarMeta}>
-        <span className={styles.skillBarName}>{name}</span>
-        <span className={styles.skillBarLevel}>{level}%</span>
-      </div>
-      <div className={styles.skillBarTrack}>
-        <motion.div
-          className={styles.skillBarFill}
-          initial={{ width: 0 }}
-          animate={{ width: inView ? `${level}%` : 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-        />
-      </div>
-    </div>
-  );
-}
-
-function EkasiCard() {
-  return (
-    <motion.div
-      className={styles.ekasiCard}
-      whileHover={{ y: -6, boxShadow: "0 0 0 1px rgba(34,211,238,0.35), 0 12px 40px rgba(34,211,238,0.12)" }}
-      transition={{ type: "spring", stiffness: 320, damping: 24 }}
-    >
-      <div className={styles.ekasiMacDots}>
-        <span className={styles.ekasiMacDot} style={{ background: "#ff5f57" }} />
-        <span className={styles.ekasiMacDot} style={{ background: "#febc2e" }} />
-        <span className={styles.ekasiMacDot} style={{ background: "#28c840" }} />
-      </div>
-
-      <p className={styles.ekasiRepo}>
-        repo <span className={styles.ekasiRepoDim}>/ekasiboard</span>
-      </p>
-
-      <h3 className={styles.ekasiName}>eKasi Board</h3>
-
-      <p className={styles.ekasiDesc}>
-        Full stack community notice board for C-Section, Khayelitsha. Built with React & Supabase auth, real time data, file storage, and interactive maps.
-      </p>
-
-      <div className={styles.ekasiMeta}>
-        <span className={styles.ekasiLang}>
-          <span className={styles.ekasiLangDot} />
-          JavaScript
-        </span>
-        <span>★ 0</span>
-        <span>⑂ 0</span>
-      </div>
-
-      <div className={styles.ekasiButtons}>
-        <a href="https://github.com/Aceman-dev/ekasiboard" target="_blank" rel="noreferrer" className={styles.ekasiButtonCode}>
-          &lt;/&gt; code
-        </a>
-        <a href="https://ekasiboard.vercel.app" target="_blank" rel="noreferrer" className={styles.ekasiButtonLive}>
-          {"↗\uFE0E"} live
-        </a>
-      </div>
-    </motion.div>
-  );
-}
-
-function RepoCard({ r }) {
-  return (
-    <a href={r.html_url} target="_blank" rel="noreferrer" className={styles.repoCard}>
-      <div className={styles.repoCardTop}>
-        <h3 className={styles.repoName}>{r.name}</h3>
-        <span className={styles.repoArrow}>/&gt;</span>
-      </div>
-      <p className={styles.repoDesc}>{r.description || "No description."}</p>
-      <div className={styles.repoMeta}>
-        {r.language && (
-          <span className={styles.repoLang}>
-            <span className={styles.repoLangDot} />
-            {r.language}
-          </span>
-        )}
-        <span>★ {r.stargazers_count}</span>
-        <span>⑂ {r.forks_count}</span>
-      </div>
-    </a>
-  );
-}
-
-function ProjectCard({ project, index }) {
-  return (
-    <motion.div
-      className={styles.projectCard}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.07 }}
-      whileHover={{ y: -8, boxShadow: "0 35px 90px rgba(34,211,238,0.16)" }}
-    >
-      <div className={styles.projectCardTop}>
-        <span className={project.badge === "LIVE" ? styles.projectBadgeLive : styles.projectBadgeOther}>
-          {project.badge}
-        </span>
-        <span className={styles.projectPeriod}>{project.period}</span>
-      </div>
-      <h3 className={styles.projectName}>{project.name}</h3>
-      <p className={styles.projectTech}>{project.tech.join("  ·  ")}</p>
-      <p className={styles.projectDesc}>{project.desc}</p>
-      {project.link && (
-        <a href={project.link} target="_blank" rel="noreferrer" className={styles.projectLink}>
-          Visit /&gt;
-        </a>
-      )}
-    </motion.div>
-  );
-}
-
-function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", fn);
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
-
-  const scroll = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  const links = ["about", "skills", "projects", "timeline", "contact"];
-
-  return (
-    <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : styles.navTransparent}`}>
-      <div className={styles.navGlow} />
-      <div className={styles.navInner}>
-        <span className={styles.navLogo}>
-          AN<span className={styles.navLogoDot}>.</span>
-          <span className={styles.navLogoSuffix}>dev</span>
-        </span>
-        <div className={styles.navLinks}>
-          {links.map((l) => (
-            <button key={l} onClick={() => scroll(l)} className={styles.navLink}>
-              ./{l}
-              <span className={styles.navUnderline} />
-            </button>
-          ))}
-        </div>
-        <a href="/Anele-Nqabeni-Resume.pdf.pdf" download className={styles.navCv}>
-          <span className={styles.navCvArrow}>↓</span> cv
-        </a>
-      </div>
-    </nav>
-  );
-}
+import {
+  SKILLS,
+  TICKER_TAGS,
+  PROJECTS,
+  TIMELINE,
+  TERMINAL_LINES,
+  CONTACT_ITEMS,
+  STATS,
+  CONFIG_ROWS,
+  USERNAME,
+} from "../js/data";
 
 export default function Home() {
   const [repos, setRepos] = useState([]);
@@ -407,17 +57,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const terminalLines = [
-    "whoami",
-    "Anele Nqabeni — Junior Developer Intern @ Zaio Institute of Technology ",
-    "ls ~/stack",
-    "PHP  MySQL  Xneelo  KonsoleH HTML CSS  JavaScript  REST APIs ",
-    "cat status.txt",
-    "Building real product apps for real businesses ✓",
-    "git log --oneline -1",
-    "feat: built core features for ikhono.africa",
-  ];
-
   return (
     <div className={styles.wrapper}>
       <Nav />
@@ -442,11 +81,7 @@ export default function Home() {
                   className={styles.mobilePhotoRing}
                   style={{ width: isMobile ? "120px" : "160px", height: isMobile ? "120px" : "160px" }}
                 >
-                  <img
-                    src="/anele.jpeg"
-                    alt="Anele Nqabeni"
-                    className={styles.heroPhoto}
-                  />
+                  <img src="/anele.jpeg" alt="Anele Nqabeni" className={styles.heroPhoto} />
                 </div>
               </div>
 
@@ -494,7 +129,7 @@ export default function Home() {
                   <span className={styles.terminalTitle}>anele@ikhono.africa ~ zsh</span>
                 </div>
                 <div className={styles.terminalBody}>
-                  <Typewriter lines={terminalLines} speed={36} />
+                  <Typewriter lines={TERMINAL_LINES} speed={36} />
                 </div>
               </div>
 
@@ -519,7 +154,7 @@ export default function Home() {
               </div>
 
               <div className={styles.statsRow}>
-                {[["1+", "Years Exp."], ["5", "Projects"], ["8+", "Programming Languages"]].map(([val, label]) => (
+                {STATS.map(([val, label]) => (
                   <div key={label} style={{ textAlign: "center" }}>
                     <p className={styles.statValue}>{val}</p>
                     <p className={styles.statLabel}>{label}</p>
@@ -545,7 +180,7 @@ export default function Home() {
                   <span className={styles.terminalTitle}>anele@ikhono.africa ~ zsh</span>
                 </div>
                 <div className={styles.terminalBody}>
-                  <Typewriter lines={terminalLines} speed={36} />
+                  <Typewriter lines={TERMINAL_LINES} speed={36} />
                 </div>
               </div>
             </motion.div>
@@ -584,16 +219,7 @@ export default function Home() {
           </div>
           <div className={styles.configCard}>
             <p className={styles.configComment}>{"// anele.config.json"}</p>
-            {[
-              ["name", '"Anele Nqabeni"'],
-              ["role", '"Junior Developer Intern"'],
-              ["company", '"Zaio Institute of Technology"'],
-              ["location", '"Cape Town, ZA"'],
-              ["email", '"anele.nqabeni01@gmail.com"'],
-              ["phone", '"+27 67 876 2327"'],
-              ["status", '"open to entry level or junior role opportunities"'],
-              ["education", '"Advanced Dip. ICT — CPUT"'],
-            ].map(([k, v]) => (
+            {CONFIG_ROWS.map(([k, v]) => (
               <div key={k} className={styles.configRow}>
                 <span className={styles.configKey}>{k}</span>
                 <span className={styles.configColon}>:</span>
@@ -702,12 +328,7 @@ export default function Home() {
           I'm open to new opportunities, collaborations, or just a good conversation about tech. Reach out and I'll respond fast.
         </p>
         <div className={styles.contactGrid}>
-          {[
-            { icon: "@", label: "Email", value: "anele.nqabeni01@gmail.com", href: "mailto:anele.nqabeni01@gmail.com" },
-            { icon: "GH", label: "GitHub", value: "Aceman-dev", href: "https://github.com/Aceman-dev" },
-            { icon: "in", label: "LinkedIn", value: "anele-nqabeni-b719691aa", href: "https://www.linkedin.com/in/anele-nqabeni-b719691aa" },
-            { icon: "TEL", label: "Phone", value: "+27 67 876 2327", href: "tel:+27678762327" },
-          ].map(({ icon, label, value, href }) => (
+          {CONTACT_ITEMS.map(({ icon, label, value, href }) => (
             <a
               key={label}
               href={href}
