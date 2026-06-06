@@ -6,12 +6,12 @@ const USERNAME = "Aceman-dev";
 const SKILLS = [
   { name: "HTML / CSS", level: 93 },
   { name: "JavaScript", level: 88 },
-  { name: "PHP / MySQL", level: 85 },
+  { name: "PHP / REST APIs / MySQL", level: 85 },
   { name: "SQL", level: 82 },
   { name: "React / React Native", level: 80 },
   { name: "C# / .NET 9 / PostgreSQL", level: 78 },
-  { name: "Java / Spring Boot", level: 74 },
-  { name: "Python", level: 65 },
+  { name: "Java / Spring Boot / REST APIs", level: 80 },
+  { name: "Python", level: 70 },
 ];
 
 const TICKER_TAGS = [
@@ -61,7 +61,7 @@ const PROJECTS = [
   {
     name: "TESS7 LLC",
     index: "05",
-    tech: ["React", "PHP", "MySQL", "JavaScript", "HTML", "CSS"],
+    tech: ["React", "PHP", "MySQL", "JavaScript", "HTML", "CSS","REST APIs"],
     period: "May 2026 – Present",
     badge: "CONTRIBUTION",
     desc: "Recruiting and staffing agency website. Delivered dashboards for employers to advertise jobs, professionals to upload resumes, and subscribers to manage job loss packages. Also polished UI aesthetics and integrated database connections.",
@@ -503,7 +503,7 @@ export default function Home() {
 
   const terminalLines = [
     "whoami",
-    "Anele Nqabeni — Junior Developer Intern @ Zaio · iKhono Africa Startup",
+    "Anele Nqabeni — Junior Developer Intern @ Zaio Institute of Technology ",
     "ls ~/stack",
     "PHP  MySQL  Xneelo  KonsoleH HTML CSS  JavaScript  REST APIs ",
     "cat status.txt",
@@ -719,7 +719,7 @@ export default function Home() {
               I'm <span style={{ color: "#22d3ee", fontWeight: 600 }}>Anele Nqabeni</span>, a Junior Developer Intern at <span style={{ color: "#e5e5e5", fontWeight: 600 }}>Zaio Institute of Technology</span>, where I have deployed full stack solutions for <span style={{ color: "#e5e5e5", fontWeight: 600 }}>iKhono Africa</span> a Durban based startup which helps digitise South Africa's artisan economy, working remotely from Cape Town. I'm still early in my career, but I have made every opportunity count.
             </p>
             <p style={{ color: "#8aa0d2", fontSize: "14px", lineHeight: 1.85, fontWeight: 300 }}>
-              Day to day I work across the full stack at iKhono Africa: building PHP/MySQL backend integrations together with JavaScript for the frontend, shipping features that real clients and professionals depend on. I am also crafting full stack solutions at Metrolink as a personal startup project. I previously interned at <span style={{ color: "#e5e5e5", fontWeight: 600 }}>Plum Systems</span> on two live commercial property platforms.
+              Day to day I work across the full stack at iKhono Africa: building PHP RESTful APIs/MySQL backend integrations together with JavaScript for the frontend, shipping features that real clients and professionals depend on. I am also crafting full stack solutions at Metrolink as a personal startup project. I previously interned at <span style={{ color: "#e5e5e5", fontWeight: 600 }}>Plum Systems</span> on two live commercial property platforms.
             </p>
             <p style={{ color: "#8aa0d2", fontSize: "14px", lineHeight: 1.85, fontWeight: 300 }}>
               I hold an Advanced Diploma in ICT in Applications Development from CPUT. My drive is simple: write clean code, collaborate well, and keep improving.
@@ -730,7 +730,7 @@ export default function Home() {
             {[
               ["name", '"Anele Nqabeni"', "#c084fc"],
               ["role", '"Junior Developer Intern"', "#fbbf24"],
-              ["company", '"Zaio Institute of Technology · iKhono Africa"', "#fbbf24"],
+              ["company", '"Zaio Institute of Technology"', "#fbbf24"],
               ["location", '"Cape Town, ZA"', "#fbbf24"],
               ["email", '"anele.nqabeni01@gmail.com"', "#fbbf24"],
               ["phone", '"+27 67 876 2327"', "#fbbf24"],
