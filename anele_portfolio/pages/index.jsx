@@ -74,7 +74,7 @@ export default function Home() {
                 <div style={{ flex: 1, margin: 0, padding: 0 }}>
                   <h1 className={`${styles.heroHeading} ${styles.glowText}`} style={{ margin: 0, padding: 0 }}>
                     <span className={styles.hiLabel}>Hi, I'm</span>
-                    ANELE<br /><span className={styles.textSky}>NQABENI</span>
+                    <span className={styles.heroNameOffset}>ANELE</span><br /><span className={styles.textSky}>NQABENI</span>
                   </h1>
                 </div>
                 <div
@@ -91,7 +91,7 @@ export default function Home() {
                     <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(18px, 2.5vw, 26px)", fontWeight: 300, color: "#ffffff", letterSpacing: "0.05em", display: "block", marginBottom: "16px", textTransform: "none" }}>
                       Hi, I'm
                     </span>
-                    ANELE<br /><span className={styles.textSky}>NQABENI</span>
+                    <span className={styles.heroNameOffset}>ANELE</span><br /><span className={styles.textSky}>NQABENI</span>
                   </h1>
                 </div>
               )}
