@@ -146,7 +146,7 @@ export const CONTACT_ITEMS = [
 
 export const STATS = [
   ["1+", "Years Exp."],
-  ["5", "Projects"],
+  ["6", "Projects"],
   ["8+", "Programming Languages"],
 ];
 
