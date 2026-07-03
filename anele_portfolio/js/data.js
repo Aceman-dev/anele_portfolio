@@ -34,7 +34,7 @@ export const PROJECTS = [
     tech: ["React", "Node.js", "MySQL", "GitLab"],
     period: "Jul 2024 – Jul 2025",
     badge: "PRODUCTION",
-    desc: "Office space management platform at Plum Systems. Contributed to data migration, backend integration, and ongoing live production support.",
+    desc: "Office Place management platform at Plum Systems. Contributed to data migration, backend integration, and ongoing live production support.",
     link: null,
   },
   {
@@ -47,8 +47,17 @@ export const PROJECTS = [
     link: "https://ikhono.africa",
   },
   {
-    name: "Metrolink",
+    name: "iKhono Mobile",
     index: "04",
+    tech: ["React Native", "Expo Go", "GitHub", "Node.js", "Axios", "Zustand", "MySQL"],
+    period: "May 2026 – Present",
+    badge: "MOBILE",
+    desc: "Companion South African mobile app for iKhono Africa that connects clients and artisans with service discovery, bookings, messaging, job tracking, ratings, reviews, and secure backend syncing for on the go access.",
+    link: null,
+  },
+  {
+    name: "Metrolink",
+    index: "05",
     tech: ["C# .NET 9", "PostgreSQL", "React Native", "Expo", "Railway", "Zustand", "Axios", "SignalR", "REST APIs"],
     period: "Jan 2026 – Present",
     badge: "STARTUP",
@@ -57,7 +66,7 @@ export const PROJECTS = [
   },
   {
     name: "TESS7 LLC",
-    index: "05",
+    index: "06",
     tech: ["React", "PHP", "MySQL", "JavaScript", "HTML", "CSS", "REST APIs"],
     period: "May 2026 – Present",
     badge: "CONTRIBUTION",
