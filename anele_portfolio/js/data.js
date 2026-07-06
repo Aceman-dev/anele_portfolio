@@ -49,7 +49,7 @@ export const PROJECTS = [
   {
     name: "iKhono Mobile",
     index: "04",
-    tech: ["React Native", "Expo Go", "GitHub", "Node.js", "Axios", "Zustand", "MySQL"],
+    tech: ["React Native", "Expo Go", "GitHub", "Node.js", "Axios", "Zustand", "Supabase"],
     period: "May 2026 – Present",
     badge: "MOBILE",
     desc: "Companion South African mobile app for iKhono Africa that connects clients and artisans with service discovery, bookings, messaging, job tracking, ratings, reviews, and secure backend syncing for on the go access.",
