@@ -117,7 +117,7 @@ export default function Home() {
                   <span className={styles.heroBioHighlight}>Zaio Institute of Technology</span>,
                   {" "}building full stack solutions daily for the{" "}
                   <span className={styles.heroBioAccent}>iKhono Africa</span>
-                  {" "}small business startup web & mobile applications and contributing to a platform that mitigates real world impact.
+                  {" "}small business startup web & mobile applications and contributing to platforms that mitigates real world impact.
                 </p>
               </div>
 
