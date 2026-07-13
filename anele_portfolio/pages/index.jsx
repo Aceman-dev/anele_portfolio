@@ -117,7 +117,7 @@ export default function Home() {
                   <span className={styles.heroBioHighlight}>Zaio Institute of Technology</span>,
                   {" "}building full stack solutions daily for the{" "}
                   <span className={styles.heroBioAccent}>iKhono Africa</span>
-                  {" "}startup web application and contributing to a platform that mitigates real world impact.
+                  {" "}small business startup web & mobile applications and contributing to a platform that mitigates real world impact.
                 </p>
               </div>
 
@@ -207,11 +207,12 @@ export default function Home() {
             <p className={styles.aboutPara}>
               I'm <span className={styles.aboutParaAccent}>Anele Nqabeni</span>, a Junior Developer Intern at{" "}
               <span className={styles.aboutParaHighlight}>Zaio Institute of Technology</span>, where I have deployed full stack solutions for{" "}
-              <span className={styles.aboutParaHighlight}>iKhono Africa</span> a Durban based startup which helps digitise South Africa's artisan economy, working remotely from Cape Town. I'm still early in my career, but I have made every opportunity count.
+              <span className={styles.aboutParaHighlight}>iKhono Africa</span> a small business and startup based in Durban which helps digitise South Africa's artisan economy, working remotely from Cape Town. I also contributed to the frontend development of the TEDxDurban website, implementing UI enhancements and improving the overall user experience. I'm still early in my career, but I have made every opportunity count.
             </p>
             <p className={styles.aboutPara}>
-              Day to day I work across the full stack at iKhono Africa: building PHP RESTful APIs/MySQL backend integrations together with JavaScript for the frontend, shipping features that real clients and professionals depend on. I am also crafting full stack solutions at Metrolink as a personal startup project. I previously interned at{" "}
-              <span className={styles.aboutParaHighlight}>Plum Systems</span> on two live commercial property platforms.
+              Day to day I work across the full stack at iKhono Africa: building PHP RESTful APIs/MySQL backend integrations, and JavaScript frontend features that power real world services. I am also architecting the{" "}
+              <span className={styles.aboutParaHighlight}>iKhono Mobile</span> application using React Native (Expo), Supabase, and Node.js bringing the platform to mobile users. Alongside this, I build full stack solutions for Metrolink as a personal startup project. Previously, I interned at{" "}
+              <span className={styles.aboutParaHighlight}>Plum Systems</span> contributing to two live commercial property platforms.
             </p>
             <p className={styles.aboutPara}>
               I hold an Advanced Diploma in ICT in Applications Development from CPUT. My drive is simple: write clean code, collaborate well, and keep improving.

@@ -5,7 +5,7 @@ export const SKILLS = [
   { name: "JavaScript", level: 88 },
   { name: "PHP / REST APIs / MySQL", level: 85 },
   { name: "SQL", level: 82 },
-  { name: "React / React Native", level: 80 },
+  { name: "React / React Native / Supabase / Expo", level: 82 },
   { name: "C# / .NET 9 / PostgreSQL", level: 78 },
   { name: "Java / Spring Boot / REST APIs", level: 80 },
   { name: "Python", level: 70 },
@@ -15,7 +15,7 @@ export const TICKER_TAGS = [
   "React", "PHP", "PostgreSQL", "JavaScript", "C# .NET 9", "React Native",
   "Expo", "Railway", "Zustand", "Axios", "SignalR", "REST APIs", "Git", "GitLab", "FileZilla",
   "Bootstrap", "Joomla", "KonsoleH", "Apache", "MySQL", "Java", "Spring Boot", "Python",
-  "HTML5", "CSS3", "VS Code", "Tailwind", "Node.js",
+  "HTML5", "CSS3", "VS Code", "Tailwind", "Node.js","Supabase",
 ];
 
 export const PROJECTS = [
@@ -38,26 +38,8 @@ export const PROJECTS = [
     link: null,
   },
   {
-    name: "iKhono Africa",
-    index: "03",
-    tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS", "REST APIs"],
-    period: "Jan 2026 – Present",
-    badge: "LIVE",
-    desc: "South African home services platform connecting artisans and clients, formalising the minor building works sector. Full platform: service discovery, booking flow, professional profiles, client and admin dashboards, and secure backend endpoints.",
-    link: "https://ikhono.africa",
-  },
-  {
-    name: "iKhono Mobile",
-    index: "04",
-    tech: ["React Native", "Expo Go", "GitHub", "Node.js", "Axios", "Zustand", "Supabase"],
-    period: "May 2026 – Present",
-    badge: "MOBILE",
-    desc: "Companion South African mobile app for iKhono Africa that connects clients and artisans with service discovery, bookings, messaging, job tracking, ratings, reviews, and secure backend syncing for on the go access.",
-    link: null,
-  },
-  {
     name: "Metrolink",
-    index: "05",
+    index: "03",
     tech: ["C# .NET 9", "PostgreSQL", "React Native", "Expo", "Railway", "Zustand", "Axios", "SignalR", "REST APIs"],
     period: "Jan 2026 – Present",
     badge: "STARTUP",
@@ -65,10 +47,37 @@ export const PROJECTS = [
     link: null,
   },
   {
-    name: "TESS7 LLC",
+    name: "iKhono Africa",
+    index: "04",
+    tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS", "REST APIs"],
+    period: "Jan 2026 – Present",
+    badge: "LIVE",
+    desc: "South African home services platform connecting artisans and clients, formalising the minor building works sector. Full platform: service discovery, booking flow, professional profiles, client and admin dashboards, and secure backend endpoints.",
+    link: "https://ikhono.africa",
+  },
+  {
+    name: "TedxDurban",
+    index: "05",
+    tech: ["HTML", "CSS", "JavaScript", "PHP", "REST APIs", "MySQL"],
+    period: "Apr 2026 – Present",
+    badge: "CONTRIBUTION",
+    desc: "Live event website for TEDxDurban. My contribution here was improving the overall user experience and making refinements throughout the site experience.",
+    link: "https://www.tedxdurban.org/",
+  },
+  {
+    name: "iKhono Mobile",
     index: "06",
-    tech: ["React", "PHP", "MySQL", "JavaScript", "HTML", "CSS", "REST APIs"],
+    tech: ["React Native", "Expo Go", "GitHub", "Node.js", "Axios", "Zustand", "Supabase"],
     period: "May 2026 – Present",
+    badge: "MOBILE",
+    desc: "Companion South African mobile app for iKhono Africa that connects clients and artisans with service discovery, bookings, messaging, job tracking, ratings, reviews, and secure backend syncing for on the go access.",
+    link: null,
+  },
+  {
+    name: "TESS7 LLC",
+    index: "07",
+    tech: ["React", "PHP", "MySQL", "JavaScript", "HTML", "CSS", "REST APIs"],
+    period: "May 2026 – July 2026",
     badge: "CONTRIBUTION",
     desc: "Recruiting and staffing agency website. Delivered dashboards for employers to advertise jobs, professionals to upload resumes, and subscribers to manage job loss packages. Also polished UI aesthetics and integrated database connections.",
     link: "https://tess7llc.com",
@@ -82,7 +91,7 @@ export const TIMELINE = [
     org: "iKhono Africa",
     location: "Durban, South Africa · Remote",
     type: "work",
-    desc: "Employed by Zaio Institute of Technology as a Junior Developer Intern, deployed full stack solutions for the iKhono Africa startup. Building client and professional(s) dashboards, booking systems, and backend integrations for a platform formalising South Africa's artisan services sector.",
+    desc: "Employed by Zaio Institute of Technology as a Junior Developer Intern, deployed full stack solutions for the iKhono Africa small business startup. Building client and professional(s) dashboards, booking systems, and backend integrations for a platform formalising South Africa's artisan services sector.",
   },
   {
     period: "Jan 2026 – Present",
@@ -132,7 +141,7 @@ export const TERMINAL_LINES = [
   "ls ~/stack",
   "PHP  MySQL  Xneelo  KonsoleH HTML CSS  JavaScript  REST APIs ",
   "cat status.txt",
-  "Building real product apps for real businesses ✓",
+  "Building real product apps for small businesses and startups",
   "git log --oneline -1",
   "feat: built core features for ikhono.africa",
 ];
@@ -146,7 +155,7 @@ export const CONTACT_ITEMS = [
 
 export const STATS = [
   ["1+", "Years Exp."],
-  ["6", "Projects"],
+  ["7", "Projects"],
   ["8+", "Programming Languages"],
 ];
 
