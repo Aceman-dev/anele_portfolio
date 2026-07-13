@@ -207,7 +207,7 @@ export default function Home() {
             <p className={styles.aboutPara}>
               I'm <span className={styles.aboutParaAccent}>Anele Nqabeni</span>, a Junior Developer Intern at{" "}
               <span className={styles.aboutParaHighlight}>Zaio Institute of Technology</span>, where I have deployed full stack solutions for{" "}
-              <span className={styles.aboutParaHighlight}>iKhono Africa</span> a small business and startup based in Durban which helps digitise South Africa's artisan economy, working remotely from Cape Town. I also contributed to the frontend development of the TEDxDurban website, implementing UI enhancements and improving the overall user experience. I'm still early in my career, but I have made every opportunity count.
+              <span className={styles.aboutParaHighlight}>iKhono Africa</span> a small business startup based in Durban which helps digitise South Africa's artisan economy, working remotely from Cape Town. I also contributed to the frontend development of the TEDxDurban website, implementing UI enhancements and improving the overall user experience. I'm still early in my career, but I have made every opportunity count.
             </p>
             <p className={styles.aboutPara}>
               Day to day I work across the full stack at iKhono Africa: building PHP RESTful APIs/MySQL backend integrations, and JavaScript frontend features that power real world services. I am also architecting the{" "}
