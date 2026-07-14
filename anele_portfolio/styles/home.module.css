@@ -696,6 +696,18 @@
   margin-bottom: 10px;
 }
 
+.skillBarNameGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skillBarIcon {
+  color: #22d3ee;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
 .skillBarName {
   font-family: 'Syne', sans-serif;
   font-size: 11px;

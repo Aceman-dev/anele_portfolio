@@ -1,14 +1,16 @@
+import { Code2, Braces, Server, Database, Component, Boxes, Coffee, Terminal } from "lucide-react";
+
 export const USERNAME = "Aceman-dev";
 
 export const SKILLS = [
-  { name: "HTML / CSS", level: 93 },
-  { name: "JavaScript", level: 88 },
-  { name: "PHP / REST APIs / MySQL", level: 85 },
-  { name: "SQL", level: 82 },
-  { name: "React / React Native / Supabase / Expo", level: 82 },
-  { name: "C# / .NET 9 / PostgreSQL", level: 78 },
-  { name: "Java / Spring Boot / REST APIs", level: 80 },
-  { name: "Python", level: 70 },
+  { name: "HTML / CSS", level: 93, icon: Code2 },
+  { name: "JavaScript", level: 88, icon: Braces },
+  { name: "PHP / REST APIs / MySQL", level: 85, icon: Server },
+  { name: "SQL", level: 82, icon: Database },
+  { name: "React / React Native / Supabase / Expo", level: 82, icon: Component },
+  { name: "C# / .NET 9 / PostgreSQL", level: 78, icon: Boxes },
+  { name: "Java / Spring Boot / REST APIs", level: 80, icon: Coffee },
+  { name: "Python", level: 70, icon: Terminal },
 ];
 
 export const TICKER_TAGS = [
