@@ -600,6 +600,11 @@
   font-weight: 600;
 }
 
+.aboutParaWhite {
+  color: #ffffff;
+  font-weight: 700;
+}
+
 .configCard {
   background: #081327;
   border: 1px solid #0d1a36;

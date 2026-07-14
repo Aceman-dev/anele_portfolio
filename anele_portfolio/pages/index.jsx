@@ -215,7 +215,7 @@ export default function Home() {
               <span className={styles.aboutParaHighlight}>Plum Systems</span> contributing to two live commercial property platforms.
             </p>
             <p className={styles.aboutPara}>
-              I hold an Advanced Diploma in ICT in Applications Development from CPUT. My drive is simple: write clean code, collaborate well, and keep improving.
+              I hold an <span className={styles.aboutParaWhite}>Advanced Diploma in ICT in Applications Development</span> from <span className={styles.aboutParaWhite}>CPUT</span>. My drive is simple: write clean code, collaborate well, and keep improving.
             </p>
           </div>
           <div className={styles.configCard}>
