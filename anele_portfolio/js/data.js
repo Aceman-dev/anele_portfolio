@@ -8,7 +8,7 @@ export const SKILLS = [
   { name: "PHP / REST APIs", level: 85, icon: Server },
   { name: "MySQL / PostgreSQL", level: 85, icon: Database },
   { name: "React / React Native / Supabase / Expo", level: 82, icon: Component },
-  { name: "C# / .NET 9 / ASP.NET Core Web API / EF Core / REST APIs", level: 80, icon: Boxes },
+  { name: "C# / .NET 9 / ASP.NET Core / EF Core / REST APIs", level: 80, icon: Boxes },
   { name: "Java / Spring Boot / REST APIs", level: 80, icon: Coffee },
   { name: "Python", level: 70, icon: Terminal },
 ];
