@@ -130,6 +130,8 @@
 .terminalBody {
   padding: 16px;
   min-height: 160px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .heroHeading {
@@ -244,6 +246,7 @@
 
 .heroBio {
   max-width: 540px;
+  width: 100%;
   margin-bottom: 32px;
 }
 
@@ -252,6 +255,8 @@
   font-size: clamp(13px, 1.5vw, 14px);
   line-height: 1.75;
   font-weight: 300;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .heroBioHighlight {
@@ -503,6 +508,8 @@
   display: flex;
   gap: 8px;
   min-height: 18px;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .typewriterPrompt {
@@ -517,10 +524,20 @@
 
 .typewriterTextCommand {
   color: #4a6080;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: pre-wrap;
 }
 
 .typewriterTextOutput {
   color: #ffffff;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: pre-wrap;
 }
 
 .aboutSection {
@@ -1299,6 +1316,7 @@
   background: #040b1c;
   color: #e5e5e5;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
@@ -1313,6 +1331,10 @@
 @media (max-width: 768px) {
   .navLinks {
     display: none !important;
+  }
+
+  .container {
+    padding: 0 16px;
   }
 
   .heroHeading {
@@ -1350,6 +1372,21 @@
 
   .mobileTerminalFull {
     display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .heroBio {
+    max-width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+
+  .heroBioText {
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
   }
 
   .heroGrid {
@@ -1372,6 +1409,16 @@
     font-size: 9px !important;
     width: auto !important;
     flex: 0 1 auto !important;
+  }
+
+  .roleTitle {
+    white-space: normal !important;
+    display: block !important;
+  }
+
+  .terminalBody {
+    padding: 12px !important;
+    min-height: 140px !important;
   }
 }
 

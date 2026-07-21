@@ -44,8 +44,8 @@ export default function Typewriter({ lines, speed = 38 }) {
               )}
               <span className={i % 2 === 0 ? styles.typewriterTextCommand : styles.typewriterTextOutput}>
                 {displayed[i] ?? ""}
+                {i === lineIdx && !done && <span className={styles.cursor} />}
               </span>
-              {i === lineIdx && !done && <span className={styles.cursor} />}
             </>
           )}
         </div>

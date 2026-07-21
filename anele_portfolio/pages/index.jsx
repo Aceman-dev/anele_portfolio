@@ -111,13 +111,11 @@ export default function Home() {
 
               <div className={styles.heroBio}>
                 <p className={styles.heroBioText}>
-                  South Africa has millions of skilled artisans with no digital presence.{" "}
-                  <span className={styles.heroBioHighlight}>I'm helping fix that</span>{" "}
-                  as a Junior Developer Intern at{" "}
-                  <span className={styles.heroBioHighlight}>Zaio Institute of Technology</span>,
-                  {" "}building full stack solutions daily for the{" "}
-                  <span className={styles.heroBioAccent}>iKhono Africa</span>
-                  {" "}small business startup web & mobile applications and contributing to platforms that mitigates real world impact.
+                  I'm passionate about building products that solve real world problems. From startup web platforms to mobile applications, I enjoy turning ideas into reliable, scalable software while continuously learning new technologies and improving my craft.
+                </p>
+                <br />
+                <p className={styles.heroBioText}>
+                  I specialize in <span style={{ color: "#ffffff" }}>React, React Native, PHP, C#, ASP.NET Core, JavaScript, and MySQL, with hands on experience developing production web and mobile applications, designing REST APIs, integrating databases, and deploying cloud based solutions.</span>
                 </p>
               </div>
 
@@ -205,17 +203,16 @@ export default function Home() {
         <div className={styles.aboutGrid}>
           <div className={styles.aboutTextCol}>
             <p className={styles.aboutPara}>
-              I'm <span className={styles.aboutParaAccent}>Anele Nqabeni</span>, a Junior Developer Intern at{" "}
-              <span className={styles.aboutParaHighlight}>Zaio Institute of Technology</span>, where I have deployed full stack solutions for{" "}
-              <span className={styles.aboutParaHighlight}>iKhono Africa</span> a small business startup based in Durban which helps digitise South Africa's artisan economy, working remotely from Cape Town. I also contributed to the frontend development of the <span className={styles.aboutParaHighlight}>TEDxDurban</span> website, implementing UI enhancements and improving the overall user experience. I'm still early in my career, but I have made every opportunity count.
+              I'm <span className={styles.aboutParaAccent}>Anele Nqabeni</span>, a <span className={styles.aboutParaAccent}>Full Stack Developer</span> who enjoys building software that solves real world problems. I thrive on turning ideas into reliable web and mobile applications, combining clean code with practical solutions that make a meaningful impact.
             </p>
             <p className={styles.aboutPara}>
-              Day to day I work across the full stack at iKhono Africa: building PHP RESTful APIs/MySQL backend integrations, and JavaScript frontend features that power real world services. I am also architecting the{" "}
-              <span className={styles.aboutParaHighlight}>iKhono Mobile</span> application using React Native (Expo), Supabase, and Node.js bringing the platform to mobile users. Alongside this, I build full stack solutions for Metrolink as a personal startup project. Previously, I interned at{" "}
-              <span className={styles.aboutParaHighlight}>Plum Systems</span> contributing to two live commercial property platforms.
+              Over the past year, I have contributed to production software across startups and enterprise environments, building full stack solutions for <span className={styles.aboutParaWhite}>iKhono Africa</span>, improving the <span className={styles.aboutParaWhite}>TEDxDurban</span> website, contributing to commercial platforms at <span className={styles.aboutParaWhite}>Plum Systems</span>, and developing <span className={styles.aboutParaWhite}>MetroLink</span> as a personal project. Each experience has strengthened my ability to design, build, and deliver software that users depend on.
             </p>
             <p className={styles.aboutPara}>
-              I hold an <span className={styles.aboutParaWhite}>Advanced Diploma in ICT in Applications Development</span> from <span className={styles.aboutParaWhite}>CPUT</span>. My drive is simple: write clean code, collaborate well, and keep improving.
+              I enjoy working across the full stack, from designing REST APIs and backend services to creating responsive user interfaces and mobile applications with React Native. I'm constantly learning, refining my skills, and challenging myself to become a better <span className={styles.aboutParaAccent}>engineer</span>.
+            </p>
+            <p className={styles.aboutPara}>
+              I'm still early in my career, but I have made every opportunity count. My goal is to build software that matters, collaborate with talented teams, and continue growing into an engineer known for delivering quality work.
             </p>
           </div>
           <div className={styles.configCard}>
