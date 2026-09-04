@@ -9,6 +9,7 @@ import SkillBar from "../js/components/SkillBar";
 import ProjectCard from "../js/components/ProjectCard";
 import RepoCard from "../js/components/RepoCard";
 import EkasiCard from "../js/components/EkasiCard";
+import RhassmbekiCard from "../js/components/rhassmbekiCard";
 
 import {
   SKILLS,
@@ -269,6 +270,9 @@ export default function Home() {
             >
               <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
                 <EkasiCard />
+              </motion.div>
+              <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+                <RhassmbekiCard />
               </motion.div>
               {repos.map((r) => (
                 <motion.div key={r.id} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
