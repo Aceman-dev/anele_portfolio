@@ -1053,6 +1053,12 @@
   margin-bottom: 16px;
 }
 
+.ekasiMetaIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .ekasiLang {
   display: flex;
   align-items: center;
@@ -1083,6 +1089,10 @@
   text-transform: uppercase;
   text-decoration: none;
   text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   transition: border-color 0.15s, color 0.15s;
 }
 
@@ -1104,6 +1114,10 @@
   text-transform: uppercase;
   text-decoration: none;
   text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   transition: background 0.15s, color 0.15s;
 }
 

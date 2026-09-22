@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ExternalLink, GitFork, Star } from "lucide-react";
 import styles from "../../styles/home.module.css";
 
 export default function EkasiCard() {
@@ -29,8 +30,12 @@ export default function EkasiCard() {
           <span className={styles.ekasiLangDot} />
           JavaScript
         </span>
-        <span>★ 0</span>
-        <span>⑂ 0</span>
+        <span className={styles.ekasiMetaIcon}>
+          <Star size={14} /> 0
+        </span>
+        <span className={styles.ekasiMetaIcon}>
+          <GitFork size={14} /> 0
+        </span>
       </div>
 
       <div className={styles.ekasiButtons}>
@@ -38,7 +43,7 @@ export default function EkasiCard() {
           &lt;/&gt; code
         </a>
         <a href="https://ekasiboard.vercel.app" target="_blank" rel="noreferrer" className={styles.ekasiButtonLive}>
-          {"↗\uFE0E"} live
+          <ExternalLink size={14} /> live
         </a>
       </div>
     </motion.div>
