@@ -224,7 +224,7 @@
 
 .roleTitle {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(28px, 4vw, 56px);
+  font-size: clamp(36px, 5.2vw, 72px);
   line-height: 0.9;
   white-space: nowrap;
 }
@@ -1234,10 +1234,12 @@
   background: #081327;
   border: 1px solid #0d1a36;
   text-decoration: none;
-  transition: border-color 0.15s;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.contactCard:hover {
+.contactCard:hover,
+.contactCard:focus-visible {
+  transform: translateY(-4px);
   border-color: rgba(34,211,238,0.33);
 }
 
@@ -1331,6 +1333,234 @@
   color: #e5e5e5;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+:global(:root[data-theme="light"]) .wrapper {
+  background: var(--page);
+  color: var(--fg);
+}
+
+:global(:root[data-theme="light"]) .heroGrid {
+  background:
+    radial-gradient(circle at top left, var(--glow), transparent 30%),
+    var(--page);
+  border-color: var(--line);
+}
+
+:global(:root[data-theme="light"]) .heroGrid::before {
+  background-image:
+    linear-gradient(rgba(2, 132, 199, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 132, 199, 0.11) 1px, transparent 1px);
+}
+
+:global(:root[data-theme="light"]) .contactCard:hover,
+:global(:root[data-theme="light"]) .contactCard:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 8px 22px var(--glow);
+}
+
+:global(:root[data-theme="light"]) .ticker,
+:global(:root[data-theme="light"]) .configCard,
+:global(:root[data-theme="light"]) .skillsSection,
+:global(:root[data-theme="light"]) .timelineSection,
+:global(:root[data-theme="light"]) .projectCard,
+:global(:root[data-theme="light"]) .repoCard,
+:global(:root[data-theme="light"]) .ekasiCard,
+:global(:root[data-theme="light"]) .contactCard,
+:global(:root[data-theme="light"]) .backToTop {
+  background: var(--card);
+  border-color: var(--line);
+}
+
+:global(:root[data-theme="light"]) .tag {
+  background: var(--page);
+  border-color: var(--line);
+}
+
+:global(:root[data-theme="light"]) .skillBarTrack {
+  background: var(--line);
+}
+
+:global(:root[data-theme="light"]) .timelineDot {
+  background: var(--card);
+}
+
+:global(:root[data-theme="light"]) .sectionHeaderLine {
+  background: var(--line);
+}
+
+:global(:root[data-theme="light"]) .footer {
+  border-color: var(--line);
+}
+
+:global(:root[data-theme="light"]) .navScrolled,
+:global(:root[data-theme="light"]) .mobileMenu {
+  background: rgba(244, 247, 251, 0.96);
+  border-color: var(--line);
+}
+
+:global(:root[data-theme="light"]) .heroHeading,
+:global(:root[data-theme="light"]) .hiLabel,
+:global(:root[data-theme="light"]) .roleAmpersand,
+:global(:root[data-theme="light"]) .roleLabel,
+:global(:root[data-theme="light"]) .roleTitleWhite,
+:global(:root[data-theme="light"]) .navLogoDot,
+:global(:root[data-theme="light"]) .navLogoSuffix,
+:global(:root[data-theme="light"]) .sectionHeading,
+:global(:root[data-theme="light"]) .sectionHeaderTitle,
+:global(:root[data-theme="light"]) .aboutParaHighlight,
+:global(:root[data-theme="light"]) .aboutParaWhite,
+:global(:root[data-theme="light"]) .projectName,
+:global(:root[data-theme="light"]) .contactHeading,
+:global(:root[data-theme="light"]) .tickerTag,
+:global(:root[data-theme="light"]) .timelineRole,
+:global(:root[data-theme="light"]) .repoName,
+:global(:root[data-theme="light"]) .ekasiName,
+:global(:root[data-theme="light"]) .themeToggle,
+:global(:root[data-theme="light"]) .statLabel {
+  color: var(--fg);
+}
+
+:global(:root[data-theme="light"]) .heroBioText,
+:global(:root[data-theme="light"]) .heroBioHighlight,
+:global(:root[data-theme="light"]) .aboutPara,
+:global(:root[data-theme="light"]) .contactBio,
+:global(:root[data-theme="light"]) .contactValue,
+:global(:root[data-theme="light"]) .contactLabel,
+:global(:root[data-theme="light"]) .projectDesc,
+:global(:root[data-theme="light"]) .projectTech,
+:global(:root[data-theme="light"]) .projectPeriod,
+:global(:root[data-theme="light"]) .projectBadgeOther,
+:global(:root[data-theme="light"]) .repoDesc,
+:global(:root[data-theme="light"]) .repoMeta,
+:global(:root[data-theme="light"]) .repoSectionLabel,
+:global(:root[data-theme="light"]) .reposLoading,
+:global(:root[data-theme="light"]) .ekasiDesc,
+:global(:root[data-theme="light"]) .ekasiMeta,
+:global(:root[data-theme="light"]) .ekasiRepoDim,
+:global(:root[data-theme="light"]) .ekasiButtonCode,
+:global(:root[data-theme="light"]) .timelineDesc,
+:global(:root[data-theme="light"]) .timelineOrg,
+:global(:root[data-theme="light"]) .skillBarLevel,
+:global(:root[data-theme="light"]) .sectionCommand,
+:global(:root[data-theme="light"]) .sectionBreadcrumbDim,
+:global(:root[data-theme="light"]) .configComment,
+:global(:root[data-theme="light"]) .configColon,
+:global(:root[data-theme="light"]) .configComma,
+:global(:root[data-theme="light"]) .tag,
+:global(:root[data-theme="light"]) .navLink,
+:global(:root[data-theme="light"]) .mobileMenuLink,
+:global(:root[data-theme="light"]) .footerText,
+:global(:root[data-theme="light"]) .footerTextRight {
+  color: var(--muted);
+}
+
+:global(:root[data-theme="light"]) .navLogo,
+:global(:root[data-theme="light"]) .textSky,
+:global(:root[data-theme="light"]) .roleTitleBlue,
+:global(:root[data-theme="light"]) .heroBioAccent,
+:global(:root[data-theme="light"]) .statValue,
+:global(:root[data-theme="light"]) .sectionBreadcrumb,
+:global(:root[data-theme="light"]) .sectionCommandAccent,
+:global(:root[data-theme="light"]) .sectionHeaderLabel,
+:global(:root[data-theme="light"]) .skillBarIcon,
+:global(:root[data-theme="light"]) .skillBarName,
+:global(:root[data-theme="light"]) .aboutParaAccent,
+:global(:root[data-theme="light"]) .timelinePeriod,
+:global(:root[data-theme="light"]) .navCv,
+:global(:root[data-theme="light"]) .ctaSecondary,
+:global(:root[data-theme="light"]) .projectLink,
+:global(:root[data-theme="light"]) .projectBadgeLive,
+:global(:root[data-theme="light"]) .ekasiRepo,
+:global(:root[data-theme="light"]) .ekasiButtonLive,
+:global(:root[data-theme="light"]) .contactIcon,
+:global(:root[data-theme="light"]) .backToTop,
+:global(:root[data-theme="light"]) .mobileMenuAccent,
+:global(:root[data-theme="light"]) .mobileMenuCv {
+  color: var(--accent);
+}
+
+:global(:root[data-theme="light"]) .sectionDivider,
+:global(:root[data-theme="light"]) .cursor,
+:global(:root[data-theme="light"]) .cursorDone {
+  background: var(--accent);
+}
+
+:global(:root[data-theme="light"]) .ctaPrimary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+:global(:root[data-theme="light"]) .ctaPrimary:hover {
+  background: transparent;
+  color: var(--accent);
+}
+
+:global(:root[data-theme="light"]) .navLink:hover,
+:global(:root[data-theme="light"]) .mobileMenuLink:hover,
+:global(:root[data-theme="light"]) .themeToggle:hover,
+:global(:root[data-theme="light"]) .repoCard:hover .repoName,
+:global(:root[data-theme="light"]) .ekasiCard:hover .ekasiName {
+  color: var(--accent);
+}
+
+:global(:root[data-theme="light"]) .navCv:hover,
+:global(:root[data-theme="light"]) .projectLink:hover,
+:global(:root[data-theme="light"]) .ekasiButtonLive:hover,
+:global(:root[data-theme="light"]) .mobileMenuCv:hover,
+:global(:root[data-theme="light"]) .backToTop:hover {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+:global(:root[data-theme="light"]) .glowText {
+  text-shadow: none;
+}
+
+:global(:root[data-theme="light"]) .terminalBlock,
+:global(:root[data-theme="light"]) .mobileTerminalFull {
+  background: var(--card);
+  border-color: var(--line);
+}
+
+:global(:root[data-theme="light"]) .terminalHeader {
+  background: var(--page);
+  border-color: var(--line);
+}
+
+:global(:root[data-theme="light"]) .terminalTitle {
+  color: var(--fg);
+}
+
+:global(:root[data-theme="light"]) .typewriterPrompt {
+  color: var(--accent);
+}
+
+:global(:root[data-theme="light"]) .typewriterTextCommand {
+  color: var(--muted);
+}
+
+:global(:root[data-theme="light"]) .typewriterTextOutput {
+  color: var(--fg);
+}
+
+:global(:root[data-theme="light"]) .roleTitleBlue,
+:global(:root[data-theme="light"]) .textSky {
+  color: var(--accent);
+}
+
+:global(:root[data-theme="light"]) .hiLabel {
+  color: var(--fg);
+}
+
+:global(:root[data-theme="light"]) .heroBioHighlight {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+:global(:root[data-theme="light"]) .heroBioText {
+  color: var(--muted);
 }
 
 .container {
@@ -1440,6 +1670,26 @@
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: #e5e5e5;
+  background: transparent;
+  border: 1px solid rgba(34,211,238,0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.themeToggle:hover {
+  color: #22d3ee;
+  border-color: #22d3ee;
 }
 
 .hamburger {

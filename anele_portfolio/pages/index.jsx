@@ -88,7 +88,13 @@ export default function Home() {
               {!isMobile && (
                 <div className={styles.desktopHeading} style={{ margin: 0, padding: 0 }}>
                   <h1 className={`${styles.heroHeading} ${styles.glowText}`} style={{ margin: 0, padding: 0 }}>
-                    <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(18px, 2.5vw, 26px)", fontWeight: 300, color: "#ffffff", letterSpacing: "0.05em", display: "block", marginBottom: "16px", textTransform: "none" }}>
+                    <span
+                      className={styles.hiLabel}
+                      style={{
+                        fontSize: "clamp(18px, 2.5vw, 26px)",
+                        marginBottom: 16,
+                      }}
+                    >
                       Hi, I'm
                     </span>
                     <span className={styles.heroNameOffset}>ANELE</span><br /><span className={styles.textSky}>NQABENI</span>
@@ -102,7 +108,7 @@ export default function Home() {
                   <span className={styles.roleLabel}>I'm a</span>
                   <span className={styles.roleTitle}>
                     <span className={styles.roleTitleWhite}>FULL STACK </span>
-                    <span className={styles.roleTitleBlue}>SOFTWARE ENGINEER</span>
+                    <span className={styles.roleTitleBlue}>DEVELOPER</span>
                   </span>
                 </div>
               </div>
@@ -111,11 +117,11 @@ export default function Home() {
 
               <div className={styles.heroBio}>
                 <p className={styles.heroBioText}>
-                  I'm passionate about building products that solve real world problems. From startup web platforms to mobile applications, I enjoy turning ideas into reliable, scalable software while continuously learning new technologies and improving my craft.
+                  I'm passionate about building products that solve real problems. From startup web platforms to mobile applications, I enjoy turning ideas into reliable, scalable software while continuously learning new technologies and improving my craft.
                 </p>
                 <br />
                 <p className={styles.heroBioText}>
-                  I specialize in <span style={{ color: "#ffffff" }}>React, React Native, PHP, C#, ASP.NET Core, JavaScript, and MySQL, with hands on experience developing production web and mobile applications, designing REST APIs, integrating databases, and deploying cloud based solutions.</span>
+                  I specialize in <span className={styles.heroBioHighlight}>React, React Native, PHP, C#, ASP.NET Core, JavaScript, and MySQL, with hands on experience developing production web and mobile applications, designing REST APIs, integrating databases, and deploying cloud based solutions.</span>
                 </p>
               </div>
 

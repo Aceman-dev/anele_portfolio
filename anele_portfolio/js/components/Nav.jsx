@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { Moon, Sun } from "lucide-react";
 import styles from "../../styles/home.module.css";
+import useTheme from "../hooks/useTheme";
 
 const NAV_LINKS = ["about", "skills", "projects", "timeline", "contact"];
 
@@ -8,6 +10,7 @@ export default function Nav() {
   const [visible, setVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuOpenRef = useRef(false);
+  const { theme, toggle: toggleTheme } = useTheme();
 
   useEffect(() => {
     menuOpenRef.current = menuOpen;
@@ -75,6 +78,15 @@ export default function Nav() {
           </div>
 
           <div className={styles.navRight}>
+            <button
+              className={styles.themeToggle}
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              aria-pressed={theme === "light"}
+              title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            >
+              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
             <a href="/Anele-Nqabeni-Resume.pdf.pdf" download className={styles.navCv}>
               <span className={styles.navCvArrow}>↓</span> cv
             </a>
