@@ -96,12 +96,12 @@ export const TIMELINE = [
     desc: "Employed by Zaio Institute of Technology as a Junior Developer Intern, deployed full stack solutions for the iKhono Africa small business startup. Building client and professional(s) dashboards, booking systems, and backend integrations for a platform formalising South Africa's artisan services sector.",
   },
   {
-    period: "Jan 2026 – Present",
+    period: "Jan 2026 – September 2026",
     role: "Full Stack Developer",
     org: "Metrolink",
-    location: "Cape Town · Startup · Remote · Continuous Development",
+    location: "Cape Town · Startup · Remote ",
     type: "work",
-    desc: "Actively contributing to the Metrolink startup. Building and optimising backend APIs using C# .NET 9 on Railway, while integrating with a React Native (Expo) mobile frontend.",
+    desc: "Actively contributed to the Metrolink startup. Building and optimising backend APIs using C# .NET 9 on Railway, while integrating with a React Native (Expo) mobile frontend.",
   },
   {
     period: "Jan 2025 – Dec 2025",
@@ -152,7 +152,7 @@ export const ACHIEVEMENTS = [
 
 export const TERMINAL_LINES = [
   "whoami",
-  "Anele Nqabeni — Junior Developer Intern @ Zaio Institute of Technology ",
+  "Anele Nqabeni — Software Engineer Intern @ Yes4Youth",
   "ls ~/stack",
   "PHP  MySQL  Xneelo  KonsoleH HTML CSS  JavaScript  REST APIs ",
   "cat status.txt",

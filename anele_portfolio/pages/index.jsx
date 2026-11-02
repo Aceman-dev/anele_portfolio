@@ -132,7 +132,7 @@ export default function Home() {
                   <span className={styles.terminalDot} style={{ background: "#ff5f57" }} />
                   <span className={styles.terminalDot} style={{ background: "#febc2e" }} />
                   <span className={styles.terminalDot} style={{ background: "#28c840" }} />
-                  <span className={styles.terminalTitle}>anele@ikhono.africa ~ zsh</span>
+                  <span className={styles.terminalTitle}>anele.nqabeni01@gmail.com ~ zsh</span>
                 </div>
                 <div className={styles.terminalBody}>
                   <Typewriter lines={TERMINAL_LINES} speed={36} />
@@ -183,7 +183,7 @@ export default function Home() {
                   <span className={styles.terminalDot} style={{ background: "#ff5f57" }} />
                   <span className={styles.terminalDot} style={{ background: "#febc2e" }} />
                   <span className={styles.terminalDot} style={{ background: "#28c840" }} />
-                  <span className={styles.terminalTitle}>anele@ikhono.africa ~ zsh</span>
+                  <span className={styles.terminalTitle}>anele.nqabeni01@gmail.com ~ zsh</span>
                 </div>
                 <div className={styles.terminalBody}>
                   <Typewriter lines={TERMINAL_LINES} speed={36} />
