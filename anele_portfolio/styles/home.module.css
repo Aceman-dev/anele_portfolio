@@ -1132,6 +1132,143 @@
   border-bottom: 1px solid #0d1a36;
 }
 
+.achievementsSection {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+.achievementsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.achievementCard {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: #081327;
+  border: 1px solid #0d1a36;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.achievementCard:hover {
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 14px 36px rgba(2, 8, 23, 0.18);
+  transform: translateY(-3px);
+}
+
+.achievementPreview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.8 / 1;
+  overflow: hidden;
+  background: #ffffff;
+  border-bottom: 1px solid #0d1a36;
+}
+
+.achievementPreview iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+
+.achievementPreviewLink {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  border-radius: 9999px;
+  background: rgba(3, 13, 35, 0.94);
+  color: #22d3ee;
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+}
+
+.achievementPreviewLink:hover {
+  background: #22d3ee;
+  color: #020617;
+}
+
+.achievementDetails {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 20px 20px;
+}
+
+.achievementCardTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.achievementIcon {
+  color: #22d3ee;
+  flex-shrink: 0;
+}
+
+.achievementType,
+.achievementDate {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #7b96c5;
+  text-transform: uppercase;
+}
+
+.achievementType {
+  padding: 5px 9px;
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  border-radius: 9999px;
+  color: #22d3ee;
+}
+
+.achievementDate {
+  margin-left: auto;
+  text-align: right;
+}
+
+.achievementTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.achievementIssuer {
+  color: #9db9da;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.achievementsEmpty {
+  padding: 24px;
+  border: 1px dashed #1a2a4a;
+  color: #8aa0d2;
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+}
+
 .timelineInner {
   max-width: 1280px;
   margin: 0 auto;
@@ -1363,6 +1500,7 @@
 :global(:root[data-theme="light"]) .configCard,
 :global(:root[data-theme="light"]) .skillsSection,
 :global(:root[data-theme="light"]) .timelineSection,
+:global(:root[data-theme="light"]) .achievementCard,
 :global(:root[data-theme="light"]) .projectCard,
 :global(:root[data-theme="light"]) .repoCard,
 :global(:root[data-theme="light"]) .ekasiCard,
@@ -1370,6 +1508,21 @@
 :global(:root[data-theme="light"]) .backToTop {
   background: var(--card);
   border-color: var(--line);
+}
+
+:global(:root[data-theme="light"]) .achievementPreview {
+  border-color: var(--line);
+}
+
+:global(:root[data-theme="light"]) .achievementPreviewLink {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: var(--line);
+  color: var(--accent);
+}
+
+:global(:root[data-theme="light"]) .achievementPreviewLink:hover {
+  background: var(--accent);
+  color: #ffffff;
 }
 
 :global(:root[data-theme="light"]) .tag {
@@ -1414,6 +1567,7 @@
 :global(:root[data-theme="light"]) .contactHeading,
 :global(:root[data-theme="light"]) .tickerTag,
 :global(:root[data-theme="light"]) .timelineRole,
+:global(:root[data-theme="light"]) .achievementTitle,
 :global(:root[data-theme="light"]) .repoName,
 :global(:root[data-theme="light"]) .ekasiName,
 :global(:root[data-theme="light"]) .themeToggle,
@@ -1441,6 +1595,10 @@
 :global(:root[data-theme="light"]) .ekasiButtonCode,
 :global(:root[data-theme="light"]) .timelineDesc,
 :global(:root[data-theme="light"]) .timelineOrg,
+:global(:root[data-theme="light"]) .achievementType,
+:global(:root[data-theme="light"]) .achievementDate,
+:global(:root[data-theme="light"]) .achievementIssuer,
+:global(:root[data-theme="light"]) .achievementsEmpty,
 :global(:root[data-theme="light"]) .skillBarLevel,
 :global(:root[data-theme="light"]) .sectionCommand,
 :global(:root[data-theme="light"]) .sectionBreadcrumbDim,
@@ -1467,6 +1625,8 @@
 :global(:root[data-theme="light"]) .skillBarName,
 :global(:root[data-theme="light"]) .aboutParaAccent,
 :global(:root[data-theme="light"]) .timelinePeriod,
+:global(:root[data-theme="light"]) .achievementIcon,
+:global(:root[data-theme="light"]) .achievementType,
 :global(:root[data-theme="light"]) .navCv,
 :global(:root[data-theme="light"]) .ctaSecondary,
 :global(:root[data-theme="light"]) .projectLink,

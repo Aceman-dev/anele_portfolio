@@ -3,7 +3,14 @@ import { Moon, Sun } from "lucide-react";
 import styles from "../../styles/home.module.css";
 import useTheme from "../hooks/useTheme";
 
-const NAV_LINKS = ["about", "skills", "projects", "timeline", "contact"];
+const NAV_LINKS = [
+  { id: "about", label: "about" },
+  { id: "skills", label: "skills" },
+  { id: "projects", label: "projects" },
+  { id: "timeline", label: "timeline" },
+  { id: "achievements", label: "certificates" },
+  { id: "contact", label: "contact" },
+];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -69,9 +76,9 @@ export default function Nav() {
           </span>
 
           <div className={styles.navLinks}>
-            {NAV_LINKS.map((l) => (
-              <button key={l} onClick={() => scroll(l)} className={styles.navLink}>
-                ./{l}
+            {NAV_LINKS.map(({ id, label }) => (
+              <button key={id} onClick={() => scroll(id)} className={styles.navLink}>
+                ./{label}
                 <span className={styles.navUnderline} />
               </button>
             ))}
@@ -104,9 +111,9 @@ export default function Nav() {
       </nav>
 
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
-        {NAV_LINKS.map((l) => (
-          <button key={l} onClick={() => scroll(l)} className={styles.mobileMenuLink}>
-            <span className={styles.mobileMenuAccent}>./</span>{l}
+        {NAV_LINKS.map(({ id, label }) => (
+          <button key={id} onClick={() => scroll(id)} className={styles.mobileMenuLink}>
+            <span className={styles.mobileMenuAccent}>./</span>{label}
           </button>
         ))}
         <a href="/Anele-Nqabeni-Resume.pdf.pdf" download className={styles.mobileMenuCv}>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Award, ExternalLink, FileText } from "lucide-react";
 import styles from "../styles/home.module.css";
 
 import Nav from "../js/components/Nav";
@@ -15,6 +16,7 @@ import {
   TICKER_TAGS,
   PROJECTS,
   TIMELINE,
+  ACHIEVEMENTS,
   TERMINAL_LINES,
   CONTACT_ITEMS,
   STATS,
@@ -117,11 +119,11 @@ export default function Home() {
 
               <div className={styles.heroBio}>
                 <p className={styles.heroBioText}>
-                  I'm passionate about building products that solve real problems. From startup web platforms to mobile applications, I enjoy turning ideas into reliable, scalable software while continuously learning new technologies and improving my craft.
+                  I build end to end web and mobile applications, from REST APIs to production.
                 </p>
                 <br />
                 <p className={styles.heroBioText}>
-                  I specialize in <span className={styles.heroBioHighlight}>React, React Native, PHP, C#, ASP.NET Core, JavaScript, and MySQL, with hands on experience developing production web and mobile applications, designing REST APIs, integrating databases, and deploying cloud based solutions.</span>
+                  I specialize in <span className={styles.heroBioHighlight}>React, React Native, PHP, C#, ASP.NET Core, JavaScript, and MySQL, with hands on experience integrating databases and deploying cloud based solutions.</span>
                 </p>
               </div>
 
@@ -314,9 +316,57 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="achievements" className={styles.achievementsSection}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionHeaderLabel}>05 — Certificates</span>
+          <div className={styles.sectionHeaderLine} />
+          <span className={styles.sectionHeaderTitle}>MY ACHIEVEMENTS</span>
+        </div>
+        {ACHIEVEMENTS.length > 0 ? (
+          <div className={styles.achievementsGrid}>
+            {ACHIEVEMENTS.map((achievement) => {
+              const DocumentIcon = achievement.type === "certificate" ? Award : FileText;
+              return (
+                <article key={achievement.title} className={styles.achievementCard}>
+                  <div className={styles.achievementPreview}>
+                    <iframe
+                      src={`${achievement.href}#page=1&toolbar=0&navpanes=0&scrollbar=0`}
+                      title={`${achievement.title} preview`}
+                      loading="lazy"
+                    />
+                    <a
+                      className={styles.achievementPreviewLink}
+                      href={achievement.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      View {achievement.type === "certificate" ? "certificate" : "document"}
+                      <ExternalLink size={13} aria-hidden="true" />
+                    </a>
+                  </div>
+                  <div className={styles.achievementDetails}>
+                    <div className={styles.achievementCardTop}>
+                      <DocumentIcon className={styles.achievementIcon} size={18} aria-hidden="true" />
+                      <span className={styles.achievementType}>{achievement.type}</span>
+                      {achievement.date && <span className={styles.achievementDate}>{achievement.date}</span>}
+                    </div>
+                    <h3 className={styles.achievementTitle}>{achievement.title}</h3>
+                    {achievement.issuer && <p className={styles.achievementIssuer}>{achievement.issuer}</p>}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        ) : (
+          <p className={styles.achievementsEmpty}>
+            Certificates and reference documents will appear here.
+          </p>
+        )}
+      </section>
+
       <section id="contact" className={styles.contactSection}>
         <div className={styles.sectionHeader} style={{ marginBottom: "48px" }}>
-          <span className={styles.sectionHeaderLabel}>05 — Contact</span>
+          <span className={styles.sectionHeaderLabel}>06 — Contact</span>
           <div className={styles.sectionHeaderLine} />
         </div>
         <motion.h2

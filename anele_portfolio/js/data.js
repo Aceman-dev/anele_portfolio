@@ -88,10 +88,10 @@ export const PROJECTS = [
 
 export const TIMELINE = [
   {
-    period: "Jan 2026 – Present",
-    role: "Junior Developer Intern (Full Stack)",
-    org: "iKhono Africa",
-    location: "Durban, South Africa · Remote",
+    period: "Dec 2025 – Present",
+    role: "Software Engineer Intern (Full Stack)",
+    org: "Zaio Institute of Technology",
+    location: "Cape Town, South Africa · Remote",
     type: "work",
     desc: "Employed by Zaio Institute of Technology as a Junior Developer Intern, deployed full stack solutions for the iKhono Africa small business startup. Building client and professional(s) dashboards, booking systems, and backend integrations for a platform formalising South Africa's artisan services sector.",
   },
@@ -134,6 +134,19 @@ export const TIMELINE = [
     location: "Cape Town",
     type: "edu",
     desc: "Foundational qualifications in ICT and information systems. Completed.",
+  },
+];
+
+export const ACHIEVEMENTS = [
+  {
+    title: "Certificate of Completion",
+    type: "certificate",
+    href: "/certificate_of_completion.pdf",
+  },
+  {
+    title: "Employment Reference",
+    type: "reference",
+    href: "/0109285580089.pdf",
   },
 ];
 
