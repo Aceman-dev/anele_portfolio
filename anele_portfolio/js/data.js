@@ -84,6 +84,15 @@ export const PROJECTS = [
     desc: "Recruiting and staffing agency website. Delivered dashboards for employers to advertise jobs, professionals to upload resumes, and subscribers to manage job loss packages. Also polished UI aesthetics and integrated database connections.",
     link: "https://tess7llc.com",
   },
+  {
+    name: "Rhass Mbeki Foundation",
+    index: "08",
+    tech: ["React", "JavaScript", "HTML"],
+    period: "September 2026",
+    badge: "LIVE",
+    desc: "Static website for Rhass Mbeki Foundation, a youth focused South African foundation creating opportunities for young people in underserved communities through education, skills development, mentorship, and community programmes.",
+    link: "https://www.rhassmbekifoundation.org/",
+  },
 ];
 
 export const TIMELINE = [
@@ -170,7 +179,7 @@ export const CONTACT_ITEMS = [
 
 export const STATS = [
   ["1+", "Years Exp."],
-  ["7", "Projects"],
+  ["8", "Projects"],
   ["8+", "Programming Languages"],
 ];
 
