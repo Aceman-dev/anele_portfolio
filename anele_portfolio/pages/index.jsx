@@ -149,7 +149,7 @@ export default function Home() {
                   ./view work
                 </motion.button>
                 <motion.a
-                  href="/Anele-Nqabeni-Resume.pdf.pdf"
+                  href="/CV%20ANELE%20NQABENI.pdf"
                   download
                   className={styles.ctaSecondary}
                   whileHover={{ scale: 1.03 }}
