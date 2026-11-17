@@ -94,7 +94,7 @@ export default function Nav() {
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            <a href="/Anele-Nqabeni-Resume.pdf.pdf" download className={styles.navCv}>
+            <a href="/CV%20ANELE%20NQABENI.pdf" download className={styles.navCv}>
               <span className={styles.navCvArrow}>↓</span> cv
             </a>
             <button
@@ -116,7 +116,7 @@ export default function Nav() {
             <span className={styles.mobileMenuAccent}>./</span>{label}
           </button>
         ))}
-        <a href="/Anele-Nqabeni-Resume.pdf.pdf" download className={styles.mobileMenuCv}>
+        <a href="/CV%20ANELE%20NQABENI.pdf" download className={styles.mobileMenuCv}>
           <span className={styles.navCvArrow}>↓</span> download cv
         </a>
       </div>
